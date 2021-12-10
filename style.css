@@ -1,8 +1,27 @@
 
 
-/* table {
+
+
+.table {
     table-layout: fixed;
-    width: 100%;
+    width: 100vh;
+    height: 100vh;
     border-collapse: collapse;
     border: 5px solid purple;
-} */
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; */
+    grid-template-areas: 
+        "td"
+        "tr";
+}
+
+tr {
+    grid-area: tr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.slot {
+    grid-area: td;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
