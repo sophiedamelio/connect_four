@@ -16,21 +16,26 @@ let winner;
 const tableEl = document.querySelector('table');
 
 const tableDataEls = document.querySelectorAll('td'); // value?
+const tableRowEls = document.querySelectorAll('tr');
 
-const playerOneNameEl = document.getElementById('player-one-name').value; // value?
-const playerTwoNameEl = document.getElementById('player-two-name').value; // value?
-
+const playerOneNameEl = document.getElementById('player-one-name'); // value?
+const playerTwoNameEl = document.getElementById('player-two-name'); // value?
 
 // replacing the value of a single cell test
-// const tableRowOneEl = document.querySelector('#row-one');
-// const cells = tableRowOneEl.tableDataEls;
+tableEl.rows[0].cells[2].value = `hello`;
 
-// console.log(cells[0].innerText);
 // this retrives the value of row 1 columm 1
 // let cell = tableEl.rows[0].cells[0];
 // console.log(cell);
 
+// set value of all cells to null upon page loading
+tableRowEls.forEach(tableRowEl => {
+    tableRowEl.value = null;
+})
 
+tableDataEls.forEach(tableRowEl => {
+    tableRowEl.value = null;
+})
 
 
 document.querySelector('#player-one-button').addEventListener('click', (e) => {
