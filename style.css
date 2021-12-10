@@ -2,7 +2,26 @@
 
 
 
-.table {
+.grid {
+    border: 1px solid;
+    height: 120px;
+    width: 140px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: brown;
+}
+
+.grid div {
+    height: 20px;
+    width: 20px;
+}
+
+
+
+
+
+
+/* .table {
     table-layout: fixed;
     width: 100vh;
     height: 100vh;
@@ -11,7 +30,7 @@
     display: grid;
     /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; */
-    grid-template-areas: 
+    /* grid-template-areas: 
         "td"
         "tr";
 }
@@ -24,4 +43,4 @@ tr {
 .slot {
     grid-area: td;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-}
+} */ 
