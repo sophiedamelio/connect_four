@@ -73,8 +73,10 @@ document.querySelector('#player-two-button').addEventListener('click', (e) => {
 
 function init() {
     whoseTurn = Math.floor(Math.random() * 2) + 1;
+    winner = null;
+    
 
-
+    render()
 }
 
 
@@ -83,6 +85,7 @@ function render() {
     console.log(`the render function is invoked`);
     // update the value of player one and player two to equal the text inputted
     // to their respective input boxes
+    console.log(`It is player ${whoseTurn}'s turn! `)
 }
 
 
