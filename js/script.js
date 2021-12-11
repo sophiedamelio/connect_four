@@ -34,27 +34,21 @@ const cellEls = gridEl.forEach((cellEl, i) => {
     console.log(`current index: ${i}, ${cellEl}`);
 });
 
-const slotEls = 
+// These are each column slot
+let slotOneEl = gridEl[0];
+let slotTwoEl = gridEl[1];
+let slotThreeEl = gridEl[2];
+let slotFourEl = gridEl[3];
+let slotFiveEl = gridEl[4];
+let slotSixEl = gridEl[5];
 
 
 const playerOneNameEl = document.getElementById('player-one-name'); // value?
 const playerTwoNameEl = document.getElementById('player-two-name'); // value?
 
 
-// replacing the value of a single cell test
-// tableEl.rows[0].cells[2].value = `hello`;
-
-// this retrives the value of row 1 columm 1
-// let cell = tableEl.rows[0].cells[0];
-// console.log(cell);
-
-// set value of all cells to null upon page loading
-// let cellEl;
-// for (let i = 0; i < cellEls.length; i++) {
-//     cellEl.value = null;
-// };
-
 // replace the value of a single 'cellEl
+slotOneEl[0] = 1;
 
 
 document.querySelector('#player-one-button').addEventListener('click', (e) => {
