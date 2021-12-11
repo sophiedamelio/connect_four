@@ -52,6 +52,11 @@
     background-color: aqua;
 }
 
+.cell {
+    border: 2px solid black;
+    height: 25px;
+}
+
 
 /* .grid div {
     height: 25px;

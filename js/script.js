@@ -1,10 +1,17 @@
 
 
-const playerOne = {
+const players = {
+    one: {
     name: null,
     color: 'Pink',
     number: 1
-}
+    },
+    two: {  
+    name: null,
+    color: 'Pink',
+    number: 1
+    }
+};
 
 const playerTwo = {
     name: null,
@@ -60,7 +67,6 @@ const playerTwoNameEl = document.getElementById('player-two-name'); // value?
 // replace the value of a single 'cellEl
 // slotOneEl[0] = 1;
 
-
 document.querySelector('#player-one-button').addEventListener('click', (e) => {
     render();
 })
@@ -73,6 +79,27 @@ document.querySelector('#player-two-button').addEventListener('click', (e) => {
 document.querySelectorAll('.slot').forEach(slot => {
     slot.addEventListener('click', e => {
         console.log(`The event listener is working`);
+        // change whose turn each time a click happens
+        if (whoseTurn === 1) {
+            whoseTurn = 2;
+        } else {
+            whoseTurn = 1;
+        }
+        // replace the value of the 'lowest' slot that is 0
+        for (let i = 0; i < gridEl.length; i++) {
+            // console.log(gridEl)
+            if (slotOneEl[0] === 0) {
+                // whose turn is it's number replaces the innerHTML?
+                slotOneEl[0] = whoseTurn;
+                break;
+            } else if (slotOneEl[1] === 0) {
+                slotOneEl[1] = whoseTurn;
+                break;
+            } else if (slotOneEl[2] === 0) {
+                slotOneEl[2] = whoseTurn;
+                break;
+            } else if (slot)
+        }
     })
 })
 
@@ -84,7 +111,6 @@ function init() {
 
     render()
 }
-
 
 
 function render() {
