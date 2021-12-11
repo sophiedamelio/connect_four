@@ -1,12 +1,14 @@
 
 const playerOne = {
     name: null,
-    color: 'Pink'
+    color: 'Pink',
+    number: 1
 }
 
 const playerTwo = {
     name: null,
-    color: 'Orange'
+    color: 'Orange',
+    number: 2
 }
 
 
@@ -15,18 +17,23 @@ let whoseTurn;
 let winner;
 
 // parts of the DOM we will be constantly updating - like nameEls
-const gridEl = document.querySelector('.grid');
-const cellEls = gridEl.querySelectorAll('div');
+// const gridEl = document.querySelector('.grid');
+// const cellEls = gridEl.querySelectorAll('div');
 
 
+// this makes the two dimensional array that is the grid
 const grid = new Array(6).fill(0).map(() => new Array(7).fill(0));
 
+// this accesses the value of each grid individually (loop)
+// they are all a default value of 0 - this is good
+
+const cellEls = grid.forEach((cellEl, i) => {
+    console.log(`current index: ${i}, ${cellEl}`);
+});
 
 
 const playerOneNameEl = document.getElementById('player-one-name'); // value?
 const playerTwoNameEl = document.getElementById('player-two-name'); // value?
-
-
 
 
 // replacing the value of a single cell test
@@ -42,6 +49,8 @@ const playerTwoNameEl = document.getElementById('player-two-name'); // value?
 //     cellEl.value = null;
 // };
 
+// replace the value of a single 'cellEl
+
 
 document.querySelector('#player-one-button').addEventListener('click', (e) => {
     render();
@@ -51,6 +60,9 @@ document.querySelector('#player-two-button').addEventListener('click', (e) => {
     render();
 })
 
+// need an event listener on the columns in grid (the arrays that each array 0-5 holds)
+// document.querySelectorAll('')
+
 
 // tableDataEls.forEach(tableDataEl => {
 //     tableDataEl.addEventListener('click', e => {
@@ -58,6 +70,14 @@ document.querySelector('#player-two-button').addEventListener('click', (e) => {
 //     })
 
 // })
+
+function init() {
+    whoseTurn = Math.floor(Math.random() * 2) + 1;
+
+
+}
+
+
 
 function render() {
     console.log(`the render function is invoked`);
