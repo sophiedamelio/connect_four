@@ -7,13 +7,56 @@
     width: 175px;
     display: flex;
     flex-wrap: wrap;
+    /* background-color: brown; */
+}
+
+#slot-one {
+    height: 175px;
+    width: 25px;
+    background-color: red;
+}
+
+#slot-two {
+    height: 175px;
+    width: 25px;
+    background-color: blue;
+}
+
+#slot-three {
+    height: 175px;
+    width: 25px;
+    background-color: pink;
+}
+
+#slot-four {
+    height: 175px;
+    width: 25px;
     background-color: brown;
 }
 
-.grid div {
+#slot-five {
+    height: 175px;
+    width: 25px;
+    background-color: black;
+}
+
+#slot-six {
+    height: 175px;
+    width: 25px;
+    background-color: green;
+}
+
+#slot-seven {
+    height: 175px;
+    width: 25px;
+    background-color: aqua;
+}
+
+
+/* .grid div {
     height: 25px;
     width: 25px;
-}
+} */
 
 
 /* .table {

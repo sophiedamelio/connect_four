@@ -1,4 +1,5 @@
 
+
 const playerOne = {
     name: null,
     color: 'Pink',
@@ -23,8 +24,7 @@ let winner;
 let gridEl = document.querySelector('.grid');
 
 // this makes the two dimensional array that is the grid
-gridEl = new Array(6).fill(0).map(() => new Array(7).fill(0));
-
+gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 
 
 // this accesses the value of each grid individually (loop)
@@ -34,13 +34,23 @@ const cellEls = gridEl.forEach((cellEl, i) => {
     console.log(`current index: ${i}, ${cellEl}`);
 });
 
+// selecting and caching the slot elems
+let slotOneEl = document.querySelector('#slot-one');
+let slotTwoEl = document.querySelector('#slot-two');
+let slotThreeEl = document.querySelector('#slot-three');
+let slotFourEl = document.querySelector('#slot-four');
+let slotFiveEl = document.querySelector('#slot-five');
+let slotSixEl = document.querySelector('#slot-six');
+let slotSevenEl = document.querySelector('#slot-seven')
+
 // These are each column slot
-let slotOneEl = gridEl[0];
-let slotTwoEl = gridEl[1];
-let slotThreeEl = gridEl[2];
-let slotFourEl = gridEl[3];
-let slotFiveEl = gridEl[4];
-let slotSixEl = gridEl[5];
+slotOneEl = gridEl[0];
+slotTwoEl = gridEl[1];
+slotThreeEl = gridEl[2];
+slotFourEl = gridEl[3];
+slotFiveEl = gridEl[4];
+slotSixEl = gridEl[5];
+slotSevenEl = gridEl[6];
 
 
 const playerOneNameEl = document.getElementById('player-one-name'); // value?
@@ -48,7 +58,7 @@ const playerTwoNameEl = document.getElementById('player-two-name'); // value?
 
 
 // replace the value of a single 'cellEl
-slotOneEl[0] = 1;
+// slotOneEl[0] = 1;
 
 
 document.querySelector('#player-one-button').addEventListener('click', (e) => {
@@ -60,20 +70,17 @@ document.querySelector('#player-two-button').addEventListener('click', (e) => {
 })
 
 // need an event listener on the columns in grid (the arrays that each array 0-5 holds)
-// document.querySelectorAll('')
+document.querySelectorAll('.slot').forEach(slot => {
+    slot.addEventListener('click', e => {
+        console.log(`The event listener is working`);
+    })
+})
 
 
-// tableDataEls.forEach(tableDataEl => {
-//     tableDataEl.addEventListener('click', e => {
-//         console.log(`td event listener is working.`)
-//     })
-
-// })
 
 function init() {
     whoseTurn = Math.floor(Math.random() * 2) + 1;
     winner = null;
-    
 
     render()
 }
