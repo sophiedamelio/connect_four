@@ -20,16 +20,21 @@ let winner;
 // const gridEl = document.querySelector('.grid');
 // const cellEls = gridEl.querySelectorAll('div');
 
+let gridEl = document.querySelector('.grid');
 
 // this makes the two dimensional array that is the grid
-const grid = new Array(6).fill(0).map(() => new Array(7).fill(0));
+gridEl = new Array(6).fill(0).map(() => new Array(7).fill(0));
+
+
 
 // this accesses the value of each grid individually (loop)
 // they are all a default value of 0 - this is good
 
-const cellEls = grid.forEach((cellEl, i) => {
+const cellEls = gridEl.forEach((cellEl, i) => {
     console.log(`current index: ${i}, ${cellEl}`);
 });
+
+const slotEls = 
 
 
 const playerOneNameEl = document.getElementById('player-one-name'); // value?
