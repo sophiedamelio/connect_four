@@ -1,3 +1,4 @@
+
 const playerOne = {
     name: null,
     color: 'Pink'
@@ -8,6 +9,7 @@ const playerTwo = {
     color: 'Orange'
 }
 
+
 let whoseTurn;
 
 let winner;
@@ -16,8 +18,16 @@ let winner;
 const gridEl = document.querySelector('.grid');
 const cellEls = gridEl.querySelectorAll('div');
 
+
+const grid = new Array(6).fill(0).map(() => new Array(7).fill(0));
+
+
+
 const playerOneNameEl = document.getElementById('player-one-name'); // value?
 const playerTwoNameEl = document.getElementById('player-two-name'); // value?
+
+
+
 
 // replacing the value of a single cell test
 // tableEl.rows[0].cells[2].value = `hello`;
@@ -27,10 +37,10 @@ const playerTwoNameEl = document.getElementById('player-two-name'); // value?
 // console.log(cell);
 
 // set value of all cells to null upon page loading
-let cellEl;
-for (let i = 0; i < cellEls.length; i++) {
-    cellEl.value = null;
-};
+// let cellEl;
+// for (let i = 0; i < cellEls.length; i++) {
+//     cellEl.value = null;
+// };
 
 
 document.querySelector('#player-one-button').addEventListener('click', (e) => {
@@ -41,12 +51,13 @@ document.querySelector('#player-two-button').addEventListener('click', (e) => {
     render();
 })
 
-tableDataEls.forEach(tableDataEl => {
-    tableDataEl.addEventListener('click', e => {
-        console.log(`td event listener is working.`)
-    })
 
-})
+// tableDataEls.forEach(tableDataEl => {
+//     tableDataEl.addEventListener('click', e => {
+//         console.log(`td event listener is working.`)
+//     })
+
+// })
 
 function render() {
     console.log(`the render function is invoked`);
