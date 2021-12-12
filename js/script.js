@@ -35,13 +35,6 @@ let gridEl = document.querySelector('.grid');
 gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 
 
-// this accesses the value of each grid individually (loop)
-// they are all a default value of 0 - this is good
-
-// const cellEls = gridEl.forEach((cellEl, i) => {
-//     console.log(`current index: ${i}, ${cellEl}`);
-// });
-
 // selecting and caching the slot elems
 let slotOneEl = document.querySelector('#slot-one');
 let slotTwoEl = document.querySelector('#slot-two');
@@ -205,7 +198,27 @@ function render() {
     //     slotOneCellEl.innerHTML = whoseTurn;
     // });
     whoseTurnMessage.textContent = `It is player ${whoseTurn}'s turn`;
+    checkWinner();
 }
 
 
+// winning combinations of the array:
 
+// 0-7 across
+// 0-6 tall on each one
+
+// slotOneEl['5'] is bottom left corner
+
+// is this a function I run each time I click ?
+
+function checkWinner() {
+    for (let i = 0; i < slotOneEl.length; i++) {
+        if (slotOneEl[i] !== 0) {
+            if (slotOneEl['5'] === slotOneEl['4'] && slotOneEl['5'] === slotOneEl['3'] 
+                && slotOneEl['5'] === slotOneEl['2']) {
+            }
+        };
+    };
+    let winnerAnnouncement = document.querySelector('#winner-announcement')
+    winnerAnnouncement = (`${whoseTurn} is the winner!`)
+};
