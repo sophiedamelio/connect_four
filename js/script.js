@@ -237,10 +237,8 @@ function render() {
 
 // 0-7 across
 // 0-6 tall on each one
-
 // slotOneEl['5'] is bottom left corner
 
-// is this a function I run each time I click ?
 let winnerAnnouncement = document.querySelector('#winner-announcement')
 
 // function to 'switch' whoseturn so that winner displays properly
@@ -253,15 +251,13 @@ function whoWon() {
 };
 
 function checkWinner() {
-    // for (let i = 0; i < slotOneEl.length; i++) {
-    //     if (slotOneEl[i] !== 0) {
-    //         if (slotOneEl['5'] === slotOneEl['4'] && slotOneEl['5'] === slotOneEl['3'] 
-    //             && slotOneEl['5'] === slotOneEl['2']) {
-    //                 // this needs to be whoseturn at the time of the click
-    //                 // currently it is opposite
-    //                 whoWon();
-    //                 winnerAnnouncement.textContent = `Player ${winner} is the winner!`
-    //         }
-    //     };
-    // };
+    for (let i = 0; i < slotOneEl.length; i++) {
+        if (slotOneEl[i] !== 0) {
+            if (slotOneEl['5'] === slotOneEl['4'] && slotOneEl['5'] === slotOneEl['3'] 
+                && slotOneEl['5'] === slotOneEl['2']) {
+                    whoWon();
+                    winnerAnnouncement.textContent = `Player ${winner} is the winner!`
+            }
+        };
+    };
 };
