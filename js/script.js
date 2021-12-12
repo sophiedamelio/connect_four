@@ -88,31 +88,14 @@ document.querySelectorAll('.slot').forEach(slot => {
             whoseTurn = 1;
         };
         // replace the value of the 'lowest' slot that is 0
-        for (let i = 0; i < gridEl.length; i++) {
-            // console.log(gridEl)
-            if (slotOneEl[0] === 0) {
-                slotOneEl[0] = whoseTurn;
-                break;
-            } else if (slotOneEl[1] === 0) {
-                slotOneEl[1] = whoseTurn;
-                break;
-            } else if (slotOneEl[2] === 0) {
-                slotOneEl[2] = whoseTurn;
-                break;
-            } else if (slotOneEl[3] === 0) {
-                slotOneEl[3] = whoseTurn;
-                break;
-            } else if (slotOneEl[4] === 0) {
-                slotOneEl[4] = whoseTurn;
-                break;
-            } else if (slotOneEl[5] === 0) {
-                slotOneEl[5] = whoseTurn;
+        for (let i = slotOneEl.length - 1; i >= 0; i--) {
+            if (slotOneEl[i] === 0) {
+                slotOneEl[i] = whoseTurn;
+                slotOneCellEls[i].innerHTML = whoseTurn;
                 break;
             };
         };
     })
-
-    render();
 })
 
 
@@ -128,10 +111,10 @@ function render() {
     // update the value of player one and player two to equal the text inputted
     // to their respective input boxes
     console.log(`It is player ${whoseTurn}'s turn! `)
-    slotOneCellEls.forEach(slotOneCellEl =>  {
-        // update the div cell to correspond to the slot array
-        slotOneCellEl.innerHTML = whoseTurn;
-    });
+    // slotOneCellEls.forEach(slotOneCellEl =>  {
+    //     // update the div cell to correspond to the slot array
+    //     slotOneCellEl.innerHTML = whoseTurn;
+    // });
 }
 
 
