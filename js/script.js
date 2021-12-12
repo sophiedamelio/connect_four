@@ -218,6 +218,15 @@ function render() {
 // is this a function I run each time I click ?
 let winnerAnnouncement = document.querySelector('#winner-announcement')
 
+// function to 'switch' whoseturn so that winner displays properly
+function whoWon() {
+    if (whoseTurn === 1) {
+        winner = 2;
+    } else if (whoseTurn === 2) {
+        winner = 1;
+    }
+};
+
 function checkWinner() {
     for (let i = 0; i < slotOneEl.length; i++) {
         if (slotOneEl[i] !== 0) {
@@ -225,7 +234,8 @@ function checkWinner() {
                 && slotOneEl['5'] === slotOneEl['2']) {
                     // this needs to be whoseturn at the time of the click
                     // currently it is opposite
-                    winnerAnnouncement.textContent = `${whoseTurn} is the winner!`
+                    whoWon();
+                    winnerAnnouncement.textContent = `Player ${winner} is the winner!`
             }
         };
     };
