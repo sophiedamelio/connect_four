@@ -14,13 +14,6 @@ const players = {
     }
 };
 
-const playerTwo = {
-    name: null,
-    color: 'Orange',
-    number: 2
-}
-
-
 let whoseTurn;
 
 let winner;
@@ -36,13 +29,13 @@ gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 
 
 // selecting and caching the slot elems
-let slotOneEl = document.querySelector('#slot-one');
-let slotTwoEl = document.querySelector('#slot-two');
-let slotThreeEl = document.querySelector('#slot-three');
-let slotFourEl = document.querySelector('#slot-four');
-let slotFiveEl = document.querySelector('#slot-five');
-let slotSixEl = document.querySelector('#slot-six');
-let slotSevenEl = document.querySelector('#slot-seven')
+// let slotOneEl = document.querySelector('#slot-one');
+// let slotTwoEl = document.querySelector('#slot-two');
+// let slotThreeEl = document.querySelector('#slot-three');
+// let slotFourEl = document.querySelector('#slot-four');
+// let slotFiveEl = document.querySelector('#slot-five');
+// let slotSixEl = document.querySelector('#slot-six');
+// let slotSevenEl = document.querySelector('#slot-seven')
 
 let slotOneCellEls = document.querySelectorAll('#slot-one div');
 let slotTwoCellEls = document.querySelectorAll('#slot-two div');
@@ -53,13 +46,25 @@ let slotSixCellEls = document.querySelectorAll('#slot-six div');
 let slotSevenCellEls = document.querySelectorAll('#slot-seven div');
 
 // These are each column slot
-slotOneEl = gridEl[0];
-slotTwoEl = gridEl[1];
-slotThreeEl = gridEl[2];
-slotFourEl = gridEl[3];
-slotFiveEl = gridEl[4];
-slotSixEl = gridEl[5];
-slotSevenEl = gridEl[6];
+// slotOneEl = gridEl[0];
+// slotTwoEl = gridEl[1];
+// slotThreeEl = gridEl[2];
+// slotFourEl = gridEl[3];
+// slotFiveEl = gridEl[4];
+// slotSixEl = gridEl[5];
+// slotSevenEl = gridEl[6];
+
+
+// to grab all the slots, using this loop instead of what is above and repetitive
+
+let slot = document.querySelectorAll('.slot');
+
+// loop to get these better / more concisely
+// so, gridEl[0] is slotOneEl (what was slotonel)
+for (let i = 0; i < gridEl.length; i++) {
+    slot[i] = gridEl[i];
+   console.log(slot[i]);
+}
 
 
 const playerOneNameEl = document.getElementById('player-one-name'); // value?
@@ -89,19 +94,25 @@ function switchTurns() {
 
 // need an event listener on the columns in grid (the arrays that each array 0-5 holds)
 
-document.querySelector('#slot-one').addEventListener('click', e => {
+// document.querySelector('#slot-one').addEventListener('click', e => {
+// this adds event listeners to each slot in a loop instead of individual
+document.querySelectorAll('.slot').forEach(slot => {
+    slot.addEventListener('click', e => {
     // replace the value of the 'lowest' slot that is 0
     // this is a backwards for loop
-    for (let i = slotOneEl.length - 1; i >= 0; i--) {
-        if (slotOneEl[i] === 0) {
-            slotOneEl[i] = whoseTurn;
-            slotOneCellEls[i].innerHTML = whoseTurn;
-            break;
+    for (let i = 0; i < gridEl.length; i++) {
+        for (let i = gridEl[i].length - 1; i >= 0; i--) {
+            if (slotOneEl[i] === 0) {
+                slotOneEl[i] = whoseTurn;
+                slotOneCellEls[i].innerHTML = whoseTurn;
+                break;
+            };
         };
-    };
-    switchTurns();
-    checkWinner();
-    render();
+        switchTurns();
+        checkWinner();
+        render();
+    }
+    });
 });
 
 document.querySelector('#slot-two').addEventListener('click', e => {
