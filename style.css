@@ -1,12 +1,14 @@
 
-
+/* * {
+    display: gri
+} */
 
 .grid {
     border: 1px solid;
     height: 67vh;
     width: 75vh;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
@@ -58,6 +60,38 @@
     border: 2px solid black;
     height: 10.7134vh;
 }
+
+.whose-turn {
+    color: black;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    color: black;
+    height: 100px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.input-names {
+    color: black;
+    height: 100px;
+    width: 160px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+
 
 
 /* .grid div {

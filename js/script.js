@@ -1,5 +1,6 @@
 
 
+
 const players = {
     one: {
     name: null,
@@ -106,6 +107,7 @@ document.querySelector('#slot-one').addEventListener('click', e => {
         };
     };
     switchTurns();
+    render();
 });
 
 document.querySelector('#slot-two').addEventListener('click', e => {
@@ -117,6 +119,7 @@ document.querySelector('#slot-two').addEventListener('click', e => {
         }
     };
     switchTurns();
+    render();
 });
 
 document.querySelector('#slot-three').addEventListener('click', e => {
@@ -128,6 +131,7 @@ document.querySelector('#slot-three').addEventListener('click', e => {
         }
     };
     switchTurns();
+    render();
 });
 
 document.querySelector('#slot-four').addEventListener('click', e => {
@@ -139,6 +143,7 @@ document.querySelector('#slot-four').addEventListener('click', e => {
         }
     };
     switchTurns();
+    render();
 });
 
 document.querySelector('#slot-five').addEventListener('click', e => {
@@ -150,6 +155,7 @@ document.querySelector('#slot-five').addEventListener('click', e => {
         }
     };
     switchTurns();
+    render();
 });
 
 document.querySelector('#slot-six').addEventListener('click', e => {
@@ -161,6 +167,7 @@ document.querySelector('#slot-six').addEventListener('click', e => {
         }
     };
     switchTurns();
+    render();
 });
 
 document.querySelector('#slot-seven').addEventListener('click', e => {
@@ -172,10 +179,9 @@ document.querySelector('#slot-seven').addEventListener('click', e => {
         }
     };
     switchTurns();
+    render();
 });
 
-
-  
 
 
 function init() {
@@ -187,6 +193,7 @@ function init() {
 
 }
 
+let whoseTurnMessage = document.querySelector('.whose-turn')
 
 function render() {
     console.log(`the render function is invoked`);
@@ -197,6 +204,7 @@ function render() {
     //     // update the div cell to correspond to the slot array
     //     slotOneCellEl.innerHTML = whoseTurn;
     // });
+    whoseTurnMessage.textContent = `It is player ${whoseTurn}'s turn`;
 }
 
 
