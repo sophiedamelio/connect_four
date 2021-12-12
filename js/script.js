@@ -51,6 +51,12 @@ let slotSixEl = document.querySelector('#slot-six');
 let slotSevenEl = document.querySelector('#slot-seven')
 
 let slotOneCellEls = document.querySelectorAll('#slot-one div');
+let slotTwoCellEls = document.querySelectorAll('#slot-two div');
+let slotThreeCellEls = document.querySelectorAll('#slot-three div');
+let slotFourCellEls = document.querySelectorAll('#slot-four div')
+let slotFiveCellEls = document.querySelectorAll('#slot-five div');
+let slotSixCellEls = document.querySelectorAll('#slot-six div');
+let slotSevenCellEls = document.querySelectorAll('#slot-seven div');
 
 // These are each column slot
 slotOneEl = gridEl[0];
@@ -88,6 +94,7 @@ document.querySelectorAll('.slot').forEach(slot => {
             whoseTurn = 1;
         };
         // replace the value of the 'lowest' slot that is 0
+        // this is a backwards for loop
         for (let i = slotOneEl.length - 1; i >= 0; i--) {
             if (slotOneEl[i] === 0) {
                 slotOneEl[i] = whoseTurn;
@@ -95,7 +102,51 @@ document.querySelectorAll('.slot').forEach(slot => {
                 break;
             };
         };
-    })
+        for (let i = slotTwoEl.length - 1; i >= 0; i--) {
+            if (slotTwoEl[i] === 0) {
+                slotTwoEl[i] = whoseTurn;
+                slotTwoCellEls[i].innerHTML = whoseTurn;
+                break;
+            }
+        };
+        for (let i = slotThreeEl.length - 1; i >= 0; i--) {
+            if (slotThreeEl[i] === 0) {
+                slotThreeEl[i] = whoseTurn;
+                slotThreeCellEls[i].innerHTML = whoseTurn;
+                break;
+            }
+        };
+        for (let i = slotFourEl.length - 1; i >= 0; i--) {
+            if (slotFourEl[i] === 0) {
+                slotFourEl[i] = whoseTurn;
+                slotFourCellEls[i].innerHTML = whoseTurn;
+                break;
+            }
+        };
+        for (let i = slotFiveEl.length - 1; i >= 0; i--) {
+            if (slotFiveEl[i] === 0) {
+                slotFiveEl[i] = whoseTurn;
+                slotFiveCellEls[i].innerHTML = whoseTurn;
+                break;
+            }
+        };
+        for (let i = slotSixEl.length - 1; i >= 0; i--) {
+            if (slotSixEl[i] === 0) {
+                slotSixEl[i] = whoseTurn;
+                slotSixCellEls[i].innerHTML = whoseTurn;
+                break;
+            }
+        };
+        for (let i = slotSevenEl.length - 1; i >= 0; i--) {
+            if (slotSevenEl[i] === 0) {
+                slotSevenEl[i] = whoseTurn;
+                slotSevenCellEls[i].innerHTML = whoseTurn;
+                break;
+            }
+        };
+
+
+    });
 })
 
 
