@@ -91,6 +91,12 @@
     padding-bottom: 40px;
 }
 
+#winner-announcement {
+    color: black;
+    height: 100px;
+    width: 160px;
+    display: block;
+}
 
 
 

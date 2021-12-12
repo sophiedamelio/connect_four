@@ -100,6 +100,7 @@ document.querySelector('#slot-one').addEventListener('click', e => {
         };
     };
     switchTurns();
+    checkWinner();
     render();
 });
 
@@ -112,6 +113,7 @@ document.querySelector('#slot-two').addEventListener('click', e => {
         }
     };
     switchTurns();
+    checkWinner();
     render();
 });
 
@@ -124,6 +126,7 @@ document.querySelector('#slot-three').addEventListener('click', e => {
         }
     };
     switchTurns();
+    checkWinner();
     render();
 });
 
@@ -136,6 +139,7 @@ document.querySelector('#slot-four').addEventListener('click', e => {
         }
     };
     switchTurns();
+    checkWinner();
     render();
 });
 
@@ -148,6 +152,7 @@ document.querySelector('#slot-five').addEventListener('click', e => {
         }
     };
     switchTurns();
+    checkWinner();
     render();
 });
 
@@ -160,6 +165,7 @@ document.querySelector('#slot-six').addEventListener('click', e => {
         }
     };
     switchTurns();
+    checkWinner();
     render();
 });
 
@@ -172,6 +178,7 @@ document.querySelector('#slot-seven').addEventListener('click', e => {
         }
     };
     switchTurns();
+    checkWinner();
     render();
 });
 
@@ -198,7 +205,6 @@ function render() {
     //     slotOneCellEl.innerHTML = whoseTurn;
     // });
     whoseTurnMessage.textContent = `It is player ${whoseTurn}'s turn`;
-    checkWinner();
 }
 
 
@@ -210,15 +216,17 @@ function render() {
 // slotOneEl['5'] is bottom left corner
 
 // is this a function I run each time I click ?
+let winnerAnnouncement = document.querySelector('#winner-announcement')
 
 function checkWinner() {
     for (let i = 0; i < slotOneEl.length; i++) {
         if (slotOneEl[i] !== 0) {
             if (slotOneEl['5'] === slotOneEl['4'] && slotOneEl['5'] === slotOneEl['3'] 
                 && slotOneEl['5'] === slotOneEl['2']) {
+                    // this needs to be whoseturn at the time of the click
+                    // currently it is opposite
+                    winnerAnnouncement.textContent = `${whoseTurn} is the winner!`
             }
         };
     };
-    let winnerAnnouncement = document.querySelector('#winner-announcement')
-    winnerAnnouncement = (`${whoseTurn} is the winner!`)
 };
