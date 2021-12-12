@@ -3,7 +3,7 @@
 
 .grid {
     border: 1px solid;
-    height: 75vh;
+    height: 67vh;
     width: 75vh;
     display: flex;
     flex-wrap: wrap;
@@ -13,50 +13,50 @@
 }
 
 #slot-one {
-    height: 175px;
-    width: 25px;
+    height: 67vh;
+    width: 10.7134vh;
     background-color: red;
 }
 
 #slot-two {
-    height: 175px;
-    width: 25px;
+    height: 67vh;
+    width: 10.7134vh;
     background-color: blue;
 }
 
 #slot-three {
-    height: 175px;
-    width: 25px;
+    height: 67vh;
+    width: 10.7134vh;
     background-color: pink;
 }
 
 #slot-four {
-    height: 175px;
-    width: 25px;
+    height: 67vh;
+    width: 10.7134vh;
     background-color: brown;
 }
 
 #slot-five {
-    height: 175px;
-    width: 25px;
+    height: 67vh;
+    width: 10.7134vh;
     background-color: black;
 }
 
 #slot-six {
-    height: 175px;
-    width: 25px;
+    height: 67vh;
+    width: 10.7134vh;
     background-color: green;
 }
 
 #slot-seven {
-    height: 175px;
-    width: 25px;
+    height: 67vh;
+    width: 10.7134vh;
     background-color: aqua;
 }
 
 .cell {
     border: 2px solid black;
-    height: 25px;
+    height: 10.7134vh;
 }
 
 

@@ -181,7 +181,10 @@ document.querySelector('#slot-seven').addEventListener('click', e => {
 function init() {
     whoseTurn = Math.floor(Math.random() * 2) + 1;
     winner = null;
+
+    switchTurns();
     render();
+
 }
 
 
