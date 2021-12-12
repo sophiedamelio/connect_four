@@ -3,11 +3,13 @@
 
 .grid {
     border: 1px solid;
-    height: 175px;
-    width: 175px;
+    height: 75vh;
+    width: 75vh;
     display: flex;
     flex-wrap: wrap;
-    /* background-color: brown; */
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #slot-one {
