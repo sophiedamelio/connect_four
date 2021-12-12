@@ -37,9 +37,9 @@ gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 // this accesses the value of each grid individually (loop)
 // they are all a default value of 0 - this is good
 
-const cellEls = gridEl.forEach((cellEl, i) => {
-    console.log(`current index: ${i}, ${cellEl}`);
-});
+// const cellEls = gridEl.forEach((cellEl, i) => {
+//     console.log(`current index: ${i}, ${cellEl}`);
+// });
 
 // selecting and caching the slot elems
 let slotOneEl = document.querySelector('#slot-one');
@@ -49,6 +49,8 @@ let slotFourEl = document.querySelector('#slot-four');
 let slotFiveEl = document.querySelector('#slot-five');
 let slotSixEl = document.querySelector('#slot-six');
 let slotSevenEl = document.querySelector('#slot-seven')
+
+let slotOneCellEls = document.querySelectorAll('#slot-one div');
 
 // These are each column slot
 slotOneEl = gridEl[0];
@@ -84,12 +86,11 @@ document.querySelectorAll('.slot').forEach(slot => {
             whoseTurn = 2;
         } else {
             whoseTurn = 1;
-        }
+        };
         // replace the value of the 'lowest' slot that is 0
         for (let i = 0; i < gridEl.length; i++) {
             // console.log(gridEl)
             if (slotOneEl[0] === 0) {
-                // whose turn is it's number replaces the innerHTML?
                 slotOneEl[0] = whoseTurn;
                 break;
             } else if (slotOneEl[1] === 0) {
@@ -98,18 +99,27 @@ document.querySelectorAll('.slot').forEach(slot => {
             } else if (slotOneEl[2] === 0) {
                 slotOneEl[2] = whoseTurn;
                 break;
-            } else if (slot)
-        }
+            } else if (slotOneEl[3] === 0) {
+                slotOneEl[3] = whoseTurn;
+                break;
+            } else if (slotOneEl[4] === 0) {
+                slotOneEl[4] = whoseTurn;
+                break;
+            } else if (slotOneEl[5] === 0) {
+                slotOneEl[5] = whoseTurn;
+                break;
+            };
+        };
     })
-})
 
+    render();
+})
 
 
 function init() {
     whoseTurn = Math.floor(Math.random() * 2) + 1;
     winner = null;
-
-    render()
+    render();
 }
 
 
@@ -118,6 +128,10 @@ function render() {
     // update the value of player one and player two to equal the text inputted
     // to their respective input boxes
     console.log(`It is player ${whoseTurn}'s turn! `)
+    slotOneCellEls.forEach(slotOneCellEl =>  {
+        // update the div cell to correspond to the slot array
+        slotOneCellEl.innerHTML = whoseTurn;
+    });
 }
 
 
