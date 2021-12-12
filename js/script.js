@@ -37,7 +37,9 @@ gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 // let slotSixEl = document.querySelector('#slot-six');
 // let slotSevenEl = document.querySelector('#slot-seven')
 
+// this needs to change to the divs within the gridEl[0]
 let slotOneCellEls = document.querySelectorAll('#slot-one div');
+
 let slotTwoCellEls = document.querySelectorAll('#slot-two div');
 let slotThreeCellEls = document.querySelectorAll('#slot-three div');
 let slotFourCellEls = document.querySelectorAll('#slot-four div')
@@ -62,9 +64,15 @@ let slot = document.querySelectorAll('.slot');
 // loop to get these better / more concisely
 // so, gridEl[0] is slotOneEl (what was slotonel)
 for (let i = 0; i < gridEl.length; i++) {
+    // this is slotOneEl (slot[i])
     slot[i] = gridEl[i];
-   console.log(slot[i]);
+    for (let y = slot.length - 1; y >= 0; y--) {
+    // backwards loop like this?
+    // (let i = gridEl[x].length - 1; i >= 0; i--)
+        slotOneCellEls = slot[y]; // ?
+    }
 }
+
 
 
 const playerOneNameEl = document.getElementById('player-one-name'); // value?
@@ -100,11 +108,17 @@ document.querySelectorAll('.slot').forEach(slot => {
     slot.addEventListener('click', e => {
     // replace the value of the 'lowest' slot that is 0
     // this is a backwards for loop
-    for (let i = 0; i < gridEl.length; i++) {
-        for (let i = gridEl[i].length - 1; i >= 0; i--) {
-            if (slotOneEl[i] === 0) {
-                slotOneEl[i] = whoseTurn;
-                slotOneCellEls[i].innerHTML = whoseTurn;
+    // while x is less than 7
+    for (let x = 0; x < gridEl.length; x++) {
+        // backwards loop to go bottom up
+        // gridEl at every index it has
+        // if gridEl at each index is 0
+        // gridEl at that index is equal to Whoseturn
+        // slotOneCellEls 's innerHTML = whoseTurn
+        for (let i = gridEl[x].length - 1; i >= 0; i--) {
+            if (gridEl[i] === 0) {
+                gridEl[i] = whoseTurn;
+                slotOneCellEls[x].innerHTML = whoseTurn;
                 break;
             };
         };
@@ -239,15 +253,15 @@ function whoWon() {
 };
 
 function checkWinner() {
-    for (let i = 0; i < slotOneEl.length; i++) {
-        if (slotOneEl[i] !== 0) {
-            if (slotOneEl['5'] === slotOneEl['4'] && slotOneEl['5'] === slotOneEl['3'] 
-                && slotOneEl['5'] === slotOneEl['2']) {
-                    // this needs to be whoseturn at the time of the click
-                    // currently it is opposite
-                    whoWon();
-                    winnerAnnouncement.textContent = `Player ${winner} is the winner!`
-            }
-        };
-    };
+    // for (let i = 0; i < slotOneEl.length; i++) {
+    //     if (slotOneEl[i] !== 0) {
+    //         if (slotOneEl['5'] === slotOneEl['4'] && slotOneEl['5'] === slotOneEl['3'] 
+    //             && slotOneEl['5'] === slotOneEl['2']) {
+    //                 // this needs to be whoseturn at the time of the click
+    //                 // currently it is opposite
+    //                 whoWon();
+    //                 winnerAnnouncement.textContent = `Player ${winner} is the winner!`
+    //         }
+    //     };
+    // };
 };
