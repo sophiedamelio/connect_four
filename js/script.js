@@ -87,7 +87,7 @@ slotCellEls = cellArray(slotCellEls, 6);
 
 // to grab all the slots, using this loop instead of what is above and repetitive
 
-// let slotEls = document.querySelectorAll('.slot');
+let slotEls = document.querySelectorAll('.slot');
 
 
 // loop to get these better / more concisely
@@ -183,15 +183,14 @@ document.querySelectorAll('.slot').forEach(slotEls => {
     // define e.slotEl ?
 
     e.slotEls;
-
     console.log(slotEls);
 
+    // let i = slotEls;
     for (let i = slotCellEls.length - 1; i >= 0; i--) {
-        
         for (let x = slotCellEls[i].length - 1; x >= 0; x--) {
                 // console.log(slotCellEls[i][x].innerHTML)
                 if (slotCellEls[i][x].innerHTML === '0') {
-                    console.log(slotCellEls[slotEls][x])
+                    console.log(slotCellEls[i][x])
                     // this needs to be slotCellEls [e.slotEl, slot el that was clicked on][x].innerHTML = whoseTurn
                     slotCellEls[i][x].innerHTML = whoseTurn.toString();
                     // console.log(slotCellEls[i][x].innerHTML)
