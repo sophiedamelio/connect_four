@@ -40,6 +40,13 @@ gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 // this needs to change to the divs within the gridEl[0]
 let slotCellEls = document.querySelectorAll('.slot .cell');
 
+// set all the innerHTML of all slot cells to 0
+slotCellEls.forEach(slotCellEls => {
+    slotCellEls.innerHTML = 0;
+    // return slotCellEL;
+})
+
+
 // get the 'arrays' of slot cells for each slot (there are 42 slot cells)
 
 // let slotCellArray = []
@@ -173,17 +180,11 @@ document.querySelectorAll('.slot').forEach(slotEl => {
         // console.log(`hello`);
     // }
 
+    // i need to set all my slotcellEls.innerHTML at all indexes (i and x) to zero first?
     for (let i = 0; i <= slotCellEls.length - 1; i++) {
-        if (slotCellEls[i] === 0)
-        // slotCellEls[i].innerHTML = whoseTurn;
-        for (let x = slotCellEls[i].length - 1; x >= 0; x--) {
-            if (slotCellEls[x] === 0) {
-                function timeoutLoop() {
+        for (let x = slotCellEls[i].length - 2; x >= 0; x--) {
+            if (slotCellEls[i][x] === 0) {
                 slotCellEls[i][x].innerHTML = whoseTurn;
-                setTimeout(timeoutLoop, delay);
-
-                }
-                setTimeout(timeoutLoop, delay);
                 break;
             }
         }
