@@ -113,7 +113,7 @@ document.querySelectorAll('.slot').forEach(slot => {
     // replace the value of the 'lowest' slot that is 0
     // this is a backwards for loop
     // while x is less than 7
-    for (let x = slot.length; x >= 0; x--) {
+    for (let x = slot.length - 1; x >= 0; x--) {
         // backwards loop to go bottom up   
         // gridEl at every index it has
         // if gridEl at each index is 0
@@ -122,26 +122,31 @@ document.querySelectorAll('.slot').forEach(slot => {
         // 'create' cell els correctly
         // cellEls = slot[x]
         // console.log(cellEls)
-        for (let i = gridEl[x].length - 1; i >= 0; i--) {
-            // inner loop statements to execute
 
-            if (gridEl[i] === 0) {
-                gridEl[i] = whoseTurn;
-                slotOneCellEls[x].innerHTML = whoseTurn;
-                break;
-            };
-        };
+        // for (let i = gridEl[x].length - 1; i >= 0; i--) {
+        //     // inner loop statements to execute
+
+        //     if (gridEl[i] === 0) {
+        //         gridEl[i] = whoseTurn;
+        //         slotOneCellEls[x].innerHTML = whoseTurn;
+        //         break;
+        //     };
+        // };
+
+
         // outer loop statements to execute
 
         // this is trying to get gridEl[0] (aka slot[0]), at all of it's
         // keys (each 6 cells) 
         // gridEl[x]['5'] is bottom right corner
-        gridEl[x]['5']
-
-        switchTurns();
-        checkWinner();
-        render();
+        if (gridEl[x]['5'] === 0) {
+            gridEl[x]['5'].innerHTML = whoseTurn;
+            break;
+        }
     }
+    switchTurns();
+    checkWinner();
+    render();
     });
 });
 
