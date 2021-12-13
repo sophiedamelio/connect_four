@@ -38,14 +38,21 @@ gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 // let slotSevenEl = document.querySelector('#slot-seven')
 
 // this needs to change to the divs within the gridEl[0]
-let slotOneCellEls = document.querySelectorAll('#slot-one div');
+let slotCellEls = document.querySelectorAll('.slot .cell');
 
-let slotTwoCellEls = document.querySelectorAll('#slot-two div');
-let slotThreeCellEls = document.querySelectorAll('#slot-three div');
-let slotFourCellEls = document.querySelectorAll('#slot-four div')
-let slotFiveCellEls = document.querySelectorAll('#slot-five div');
-let slotSixCellEls = document.querySelectorAll('#slot-six div');
-let slotSevenCellEls = document.querySelectorAll('#slot-seven div');
+// get the 'arrays' of slot cells for each slot (there are 42 slot cells)
+
+slotCellEls.forEach(slotCellEl => {
+    slotCellArray = []
+    slotCellEl += 7;
+})
+
+// let slotTwoCellEls = document.querySelectorAll('#slot-two div');
+// let slotThreeCellEls = document.querySelectorAll('#slot-three div');
+// let slotFourCellEls = document.querySelectorAll('#slot-four div')
+// let slotFiveCellEls = document.querySelectorAll('#slot-five div');
+// let slotSixCellEls = document.querySelectorAll('#slot-six div');
+// let slotSevenCellEls = document.querySelectorAll('#slot-seven div');
 
 // These are each column slot
 // slotOneEl = gridEl[0];
@@ -59,7 +66,7 @@ let slotSevenCellEls = document.querySelectorAll('#slot-seven div');
 
 // to grab all the slots, using this loop instead of what is above and repetitive
 
-let slot = document.querySelectorAll('.slot');
+let slotEl = document.querySelectorAll('.slot');
 
 
 // loop to get these better / more concisely
@@ -107,16 +114,16 @@ function switchTurns() {
 
 // document.querySelector('#slot-one').addEventListener('click', e => {
 // this adds event listeners to each slot in a loop instead of individual
-document.querySelectorAll('.slot').forEach(slot => {
-    slot.addEventListener('click', e => {
+document.querySelectorAll('.slot').forEach(slotEl => {
+    slotEl.addEventListener('click', e => {
     console.log('event listener is working')
     // replace the value of the 'lowest' slot that is 0
     // this is a backwards for loop
-    // while x is less than 7
-    for (let x = slot.length - 1; x >= 0; x--) {
+    // while x is less than 6 (slot.length is 7)
+    for (let x = slotEl.length - 1; x >= 0; x--) {
         // backwards loop to go bottom up   
         // gridEl at every index it has
-        // if gridEl at each index is 0
+        // if gridEl at each index and each key ['0'] -> ['6'] is 0 
         // gridEl at that index is equal to Whoseturn
         // slotOneCellEls 's innerHTML = whoseTurn
         // 'create' cell els correctly
@@ -138,14 +145,21 @@ document.querySelectorAll('.slot').forEach(slot => {
 
         // this is trying to get gridEl[0] (aka slot[0]), at all of it's
         // keys (each 6 cells) 
-        // gridEl[x]['5'] is bottom right corner
-        if (gridEl[x]['5'] === 0) {
-            gridEl[x]['5'].innerHTML = whoseTurn;
-            break;
+        // gridEl[x]['6'] is bottom right corner
+
+        // this is good, i think
+        if (slotEl[x] === 0) {
+            for (let i = slotCellEls.length - 1; i >= 0; i--) {
+            slotEl[i] = whoseTurn;
+            // break;
+            }
         }
+        slotOneCellEls[x].innerHTML = whoseTurn;
+        // break;
+        // console.log(`hello`);
     }
     switchTurns();
-    checkWinner();
+    // checkWinner();
     render();
     });
 });
