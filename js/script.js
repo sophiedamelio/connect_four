@@ -58,7 +58,8 @@ function cellArray (slotCellEls, size) {
 
 slotCellEls = cellArray(slotCellEls, 6);
 
-// so - slotCellEls['0'] = an array of the slot els of slotEl[0]
+// so - slotCellEls[0] = an array of the cell els of slotEl[0]
+
 
 // let slotTwoCellEls = document.querySelectorAll('#slot-two div');
 // let slotThreeCellEls = document.querySelectorAll('#slot-three div');
@@ -133,7 +134,7 @@ document.querySelectorAll('.slot').forEach(slotEl => {
     // replace the value of the 'lowest' slot that is 0
     // this is a backwards for loop
     // while x is less than 6 (slot.length is 7)
-    for (let x = slotEl.length - 1; x >= 0; x--) {
+    // for (let x = slotEl.length - 1; x >= 0; x--) {
         // backwards loop to go bottom up   
         // gridEl at every index it has
         // if gridEl at each index and each key ['0'] -> ['6'] is 0 
@@ -161,16 +162,33 @@ document.querySelectorAll('.slot').forEach(slotEl => {
         // gridEl[x]['6'] is bottom right corner
 
         // this is good, i think
-        if (slotEl[x] === 0) {
-            for (let i = slotCellEls.length - 1; i >= 0; i--) {
-            slotEl[i] = whoseTurn;
+        // if (slotEl[x] === 0) {
+        //     for (let i = slotCellEls.length - 1; i >= 0; i--) {
+        //     slotEl[i] = whoseTurn;
             // break;
-            }
-        }
-        slotOneCellEls[x].innerHTML = whoseTurn;
+        //     }
+        // }
+        // slotOneCellEls[x].innerHTML = whoseTurn;
         // break;
         // console.log(`hello`);
+    // }
+
+    for (let i = 0; i <= slotCellEls.length - 1; i++) {
+        if (slotCellEls[i] === 0)
+        // slotCellEls[i].innerHTML = whoseTurn;
+        for (let x = slotCellEls[i].length - 1; x >= 0; x--) {
+            if (slotCellEls[x] === 0) {
+                function timeoutLoop() {
+                slotCellEls[i][x].innerHTML = whoseTurn;
+                setTimeout(timeoutLoop, delay);
+
+                }
+                setTimeout(timeoutLoop, delay);
+                break;
+            }
+        }
     }
+
     switchTurns();
     // checkWinner();
     render();
@@ -181,7 +199,7 @@ document.querySelectorAll('.slot').forEach(slotEl => {
 //     for (let i = slotTwoEl.length - 1; i >= 0; i--) {
 //         if (slotTwoEl[i] === 0) {
 //             slotTwoEl[i] = whoseTurn;
-//             slotTwoCellEls[i].innerHTML = whoseTurn;
+            // slotTwoCellEls[i].innerHTML = whoseTurn;
 //             break;
 //         }
 //     };
