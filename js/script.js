@@ -87,7 +87,7 @@ slotCellEls = cellArray(slotCellEls, 6);
 
 // to grab all the slots, using this loop instead of what is above and repetitive
 
-let slotEl = document.querySelectorAll('.slot');
+// let slotEls = document.querySelectorAll('.slot');
 
 
 // loop to get these better / more concisely
@@ -135,8 +135,8 @@ function switchTurns() {
 
 // document.querySelector('#slot-one').addEventListener('click', e => {
 // this adds event listeners to each slot in a loop instead of individual
-document.querySelectorAll('.slot').forEach(slotEl => {
-    slotEl.addEventListener('click', e => {
+document.querySelectorAll('.slot').forEach(slotEls => {
+    slotEls.addEventListener('click', e => {
     console.log('event listener is working')
     // replace the value of the 'lowest' slot that is 0
     // this is a backwards for loop
@@ -180,15 +180,21 @@ document.querySelectorAll('.slot').forEach(slotEl => {
         // console.log(`hello`);
     // }
 
+    // define e.slotEl ?
+
+    e.slotEls;
+
+    console.log(slotEls);
 
     for (let i = slotCellEls.length - 1; i >= 0; i--) {
         
         for (let x = slotCellEls[i].length - 1; x >= 0; x--) {
                 // console.log(slotCellEls[i][x].innerHTML)
                 if (slotCellEls[i][x].innerHTML === '0') {
+                    console.log(slotCellEls[slotEls][x])
                     // this needs to be slotCellEls [e.slotEl, slot el that was clicked on][x].innerHTML = whoseTurn
                     slotCellEls[i][x].innerHTML = whoseTurn.toString();
-                    console.log(slotCellEls[i][x].innerHTML)
+                    // console.log(slotCellEls[i][x].innerHTML)
                     break;
                 }
             }
