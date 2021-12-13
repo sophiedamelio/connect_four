@@ -180,16 +180,19 @@ document.querySelectorAll('.slot').forEach(slotEl => {
         // console.log(`hello`);
     // }
 
-    // i need to set all my slotcellEls.innerHTML at all indexes (i and x) to zero first?
-    for (let i = 0; i <= slotCellEls.length - 1; i++) {
-        for (let x = slotCellEls[i].length - 2; x >= 0; x--) {
-            console.log(typeof(slotCellEls[i][x].innerHTML))
-            if (slotCellEls[i][x].innerHTML === '0') {
-                slotCellEls[i][x].innerHTML = whoseTurn.toString();
-                console.log(slotCellEls[i][x].innerHTML)
-                break;
+
+    for (let i = slotCellEls.length - 1; i >= 0; i--) {
+        
+        for (let x = slotCellEls[i].length - 1; x >= 0; x--) {
+                // console.log(slotCellEls[i][x].innerHTML)
+                if (slotCellEls[i][x].innerHTML === '0') {
+                    // this needs to be slotCellEls [e.slotEl, slot el that was clicked on][x].innerHTML = whoseTurn
+                    slotCellEls[i][x].innerHTML = whoseTurn.toString();
+                    console.log(slotCellEls[i][x].innerHTML)
+                    break;
+                }
             }
-        }
+        
     }
 
     switchTurns();
