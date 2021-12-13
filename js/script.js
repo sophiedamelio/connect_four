@@ -183,7 +183,7 @@ document.querySelectorAll('.slot').forEach(slotEl => {
     // i need to set all my slotcellEls.innerHTML at all indexes (i and x) to zero first?
     for (let i = 0; i <= slotCellEls.length - 1; i++) {
         for (let x = slotCellEls[i].length - 2; x >= 0; x--) {
-            if (slotCellEls[i][x] === 0) {
+            if (slotCellEls[i][x].innerHTML === 0) {
                 slotCellEls[i][x].innerHTML = whoseTurn;
                 break;
             }
