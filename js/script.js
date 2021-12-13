@@ -42,10 +42,23 @@ let slotCellEls = document.querySelectorAll('.slot .cell');
 
 // get the 'arrays' of slot cells for each slot (there are 42 slot cells)
 
-slotCellEls.forEach(slotCellEl => {
-    slotCellArray = []
-    slotCellEl += 7;
-})
+// let slotCellArray = []
+// breaking up the slotCellEls into smaller arrays for each column
+function cellArray (slotCellEls, size) {
+    const cellArrays = []
+    slotCellEls = [].concat(...slotCellEls)
+
+    while (slotCellEls.length) {
+        cellArrays.push(
+            slotCellEls.splice(0, size)
+        )
+    }
+    return cellArrays;
+}
+
+slotCellEls = cellArray(slotCellEls, 6);
+
+// so - slotCellEls['0'] = an array of the slot els of slotEl[0]
 
 // let slotTwoCellEls = document.querySelectorAll('#slot-two div');
 // let slotThreeCellEls = document.querySelectorAll('#slot-three div');
