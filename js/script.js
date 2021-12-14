@@ -17,7 +17,6 @@ let whoseTurn;
 let winner;
 
 
-
 // cached Element references from the DOM
 let gridEl = document.querySelector('.grid');
 let cellEls = document.querySelectorAll('.cell');
@@ -48,8 +47,30 @@ replayButtonEl.addEventListener('click', e => {
 });
 
 // this is the event listener on the entire gridEl
-document.querySelector('.grid').addEventListener('click', e => {
-    
+document.querySelector('.grid').addEventListener('click', handleGridClick)
+
+// this function is being called when the page loads
+init();
+
+// initializes state variables
+// updates the model with the initial values of the game (update the state with the initial values)
+function init() {
+    whoseTurn = Math.floor(Math.random() * 2) + 1;
+    winner = null;
+
+    reload();
+    switchTurns();
+    render();
+}
+
+// visualize the state
+function render() {
+    whoseTurnMessage.textContent = `It is player ${whoseTurn}'s turn`;
+
+}
+
+// controller function - update the state when interaction happpens - when a user clicks on the grid, update our state
+function handleGridClick(e) {
     if (e.target.className === 'cell') {
 
         // e.target.parentElement = the slot that was clicked on
@@ -65,36 +86,19 @@ document.querySelector('.grid').addEventListener('click', e => {
             }
         }
     };
-
     switchTurns();
     checkWinner();
-});
+};
 
-// this function is being called when the page loads
-init();
-
-// initializes state variables
-// updates the model with the initial values of the game (update the state with the initial values)
-function init() {
-    whoseTurn = Math.floor(Math.random() * 2) + 1;
-    winner = null;
-
-    switchTurns();
-    render();
-}
-
-// visualize the state
-function render() {
-    whoseTurnMessage.textContent = `It is player ${whoseTurn}'s turn`;
-    // this sets the winnerAnnouncementEl text content to be '' initially
-    winnerAnnouncementEl.textContent = '';
-    // set all the innerHTML of all slot cells to 0
-    // this function is ONLY called within init()
+// this is a helper function, that sets the innerhtml of each page to 0 and clears the winner announcement.
+// this function is called within init()
+function reload () {
     cellEls.forEach(cellEls => {
         cellEls.innerHTML = 0;
     })
-}
-
+    // this sets the winnerAnnouncementEl text content to be '' initially
+    winnerAnnouncementEl.textContent = '';
+};
 
 // change whose turn each time a click happens
 function switchTurns() {
@@ -120,12 +124,14 @@ function checkWinner () {
         squareTwo.innerHTML === '1' &&
         squareThree.innerHTML === '1' &&
         squareFour.innerHTML === '1') {
+            // can I get this into the render function?
             winnerAnnouncementEl.textContent = `Player 1 is the winner!`
         }
     if (squareOne.innerHTML === '2' &&
         squareTwo.innerHTML === '2' &&
         squareThree.innerHTML === '2' &&
         squareFour.innerHTML === '2') {
+            // can I get this into the render function?
             winnerAnnouncementEl.textContent = `Player 2 is the winner!`
         } 
     }
