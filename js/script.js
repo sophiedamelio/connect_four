@@ -135,9 +135,9 @@ function switchTurns() {
 
 // document.querySelector('#slot-one').addEventListener('click', e => {
 // this adds event listeners to each slot in a loop instead of individual
-document.querySelectorAll('.slot').forEach(slotEls => {
-    slotEls.addEventListener('click', e => {
-    console.log('event listener is working')
+// document.querySelector('.grid').forEach(slotEls => {
+document.querySelector('.grid').addEventListener('click', e => {
+console.log('event listener is working')
     // replace the value of the 'lowest' slot that is 0
     // this is a backwards for loop
     // while x is less than 6 (slot.length is 7)
@@ -182,29 +182,47 @@ document.querySelectorAll('.slot').forEach(slotEls => {
 
     // define e.slotEl ?
 
-    e.slotEls;
-    console.log(slotEls);
+    // e.slotEls;
+    // console.log(slotEls);
+    if (e.target.className === 'cell') {
+        // e.target.parentElement = the slot that was clicked on
+        console.log(e.target.parentElement)
 
-    // let i = slotEls;
-    for (let i = slotCellEls.length - 1; i >= 0; i--) {
-        for (let x = slotCellEls[i].length - 1; x >= 0; x--) {
-                // console.log(slotCellEls[i][x].innerHTML)
-                if (slotCellEls[i][x].innerHTML === '0') {
-                    console.log(slotCellEls[i][x])
-                    // this needs to be slotCellEls [e.slotEl, slot el that was clicked on][x].innerHTML = whoseTurn
-                    slotCellEls[i][x].innerHTML = whoseTurn.toString();
-                    // console.log(slotCellEls[i][x].innerHTML)
-                    break;
-                }
-            }
+        let children = e.target.parentElement.children
+
+        // this accesses the clicked on slot's children at an index of 0 (tallest cell)
+        // console.log(children[0].innerHTML);
         
-    }
+
+        for (let i = children.length - 1; i >= 0; i--) {
+            if (children[i].innerHTML === '0') {
+                console.log(`this loop works`);
+                children[i].innerHTML = whoseTurn.toString();
+                break;
+            }
+        }
+
+        // let i = slotEls;
+        // for (let i = slotCellEls.length - 1; i >= 0; i--) {
+        //     for (let x = slotCellEls[i].length - 1; x >= 0; x--) {
+        //             // console.log(slotCellEls[i][x].innerHTML)
+        //             if (slotCellEls[i][x].innerHTML === '0') {
+        //                 console.log(slotCellEls[i][x])
+        //                 // this needs to be slotCellEls [e.slotEl, slot el that was clicked on][x].innerHTML = whoseTurn
+        //                 slotCellEls[i][x].innerHTML = whoseTurn.toString();
+        //                 // console.log(slotCellEls[i][x].innerHTML)
+        //                 break;
+        //             }
+        //         }
+            
+        // }
+    };
 
     switchTurns();
     // checkWinner();
     render();
     });
-});
+// });
 
 // document.querySelector('#slot-two').addEventListener('click', e => {
 //     for (let i = slotTwoEl.length - 1; i >= 0; i--) {
