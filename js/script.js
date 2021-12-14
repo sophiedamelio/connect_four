@@ -67,8 +67,8 @@ function handleGridClick(e) {
         // console.log(children[0].innerHTML);
         
         for (let i = children.length - 1; i >= 0; i--) {
-            if (children[i].innerHTML === '0') {
-                children[i].innerHTML = whoseTurn.toString();
+            if (children[i].style.backgroundColor === 'white') {
+                // children[i].innerHTML = whoseTurn.toString();
                 children[i].style.backgroundColor = players[whoseTurn].color;
                 break;
             }
@@ -83,7 +83,8 @@ function handleGridClick(e) {
 // this function is called within init()
 function reload () {
     cellEls.forEach(cellEls => {
-        cellEls.innerHTML = 0;
+        // cellEls.innerHTML = 0;
+        cellEls.style.backgroundColor = 'white';
     })
     // this sets the winnerAnnouncementEl text content to be '' initially
     winnerAnnouncementEl.textContent = '';
@@ -110,10 +111,10 @@ function checkWinner () {
         const squareThree = cellEls[winningArrays[i][2]]
         const squareFour = cellEls[winningArrays[i][3]]
 
-    if (squareOne.innerHTML === '1' &&
-        squareTwo.innerHTML === '1' &&
-        squareThree.innerHTML === '1' &&
-        squareFour.innerHTML === '1') {
+    if (squareOne.style.backgroundColor === 'Pink' &&
+        squareTwo.style.backgroundColor === 'Pink' &&
+        squareThree.style.backgroundColor === 'Pink' &&
+        squareFour.style.backgroundColor === 'Pink') {
             // can I get this into the render function?
             winnerAnnouncementEl.textContent = `Player 1 is the winner!`
         }
