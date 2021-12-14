@@ -111,17 +111,21 @@ function checkWinner () {
         const squareThree = cellEls[winningArrays[i][2]]
         const squareFour = cellEls[winningArrays[i][3]]
 
+        // console.log(squareOne.style.backgroundColor)
+    // nested for loop to ? ^ this prints ALL the possible backgrounds, mostly white, and these if statments 
+    // are not working
     if (squareOne.style.backgroundColor === 'Pink' &&
         squareTwo.style.backgroundColor === 'Pink' &&
         squareThree.style.backgroundColor === 'Pink' &&
         squareFour.style.backgroundColor === 'Pink') {
             // can I get this into the render function?
+            console.log(squareOne.style.backgroundColor)
             winnerAnnouncementEl.textContent = `Player 1 is the winner!`
         }
-    if (squareOne.innerHTML === '2' &&
-        squareTwo.innerHTML === '2' &&
-        squareThree.innerHTML === '2' &&
-        squareFour.innerHTML === '2') {
+    if (squareOne.style.backgroundColor === 'Orange' &&
+        squareOne.style.backgroundColor === 'Orange' &&
+        squareOne.style.backgroundColor === 'Orange' &&
+        squareOne.style.backgroundColor === 'Orange') {
             // can I get this into the render function?
             winnerAnnouncementEl.textContent = `Player 2 is the winner!`
         } 
