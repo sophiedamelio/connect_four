@@ -32,7 +32,6 @@ let slotCellEls = document.querySelectorAll('.slot .cell');
 // set all the innerHTML of all slot cells to 0
 slotCellEls.forEach(slotCellEls => {
     slotCellEls.innerHTML = 0;
-    // return slotCellEL;
 })
 
 
@@ -59,7 +58,6 @@ function switchTurns() {
 
 
 document.querySelector('.grid').addEventListener('click', e => {
-    console.log('event listener is working')
     
     if (e.target.className === 'cell') {
 
@@ -96,14 +94,9 @@ function init() {
 let whoseTurnMessage = document.querySelector('.whose-turn')
 
 function render() {
-    console.log(`the render function is invoked`);
     // update the value of player one and player two to equal the text inputted
     // to their respective input boxes
-    console.log(`It is player ${whoseTurn}'s turn! `)
-    // slotOneCellEls.forEach(slotOneCellEl =>  {
-    //     // update the div cell to correspond to the slot array
-    //     slotOneCellEl.innerHTML = whoseTurn;
-    // });
+
     whoseTurnMessage.textContent = `It is player ${whoseTurn}'s turn`;
 }
 
