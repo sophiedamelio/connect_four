@@ -28,9 +28,14 @@ gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 let cellEls = document.querySelectorAll('.cell');
 
 // set all the innerHTML of all slot cells to 0
-cellEls.forEach(cellEls => {
-    cellEls.innerHTML = 0;
-})
+// this is a helper function, that sets the innerhtml of each page to 0 and clears the winner announcement.
+// this function is called within init()
+function reload () {
+    cellEls.forEach(cellEls => {
+        cellEls.innerHTML = 0;
+    })
+    winnerAnnouncement.textContent = '';
+};
 
 
 const playerOneNameEl = document.getElementById('player-one-name'); // value?
@@ -84,6 +89,7 @@ function init() {
     whoseTurn = Math.floor(Math.random() * 2) + 1;
     winner = null;
 
+    reload();
     switchTurns();
     render();
 
