@@ -1,5 +1,4 @@
 
-
 const players = {
     one: {
     name: null,
@@ -103,6 +102,32 @@ function render() {
 let winnerAnnouncement = document.querySelector('#winner-announcement')
 
 
+function checkWinner () {
+    // this is checking each array in winningArrays
+    // if winningArrays at each index i's [0], 1, 2, 3 correspond with each squareOne, two, three, 
+    //then there is a winner
+    for (let i = 0; i < winningArrays.length; i++) {
+        const squareOne = cellEls[winningArrays[i][0]]
+        const squareTwo = cellEls[winningArrays[i][1]]
+        const squareThree = cellEls[winningArrays[i][2]]
+        const squareFour = cellEls[winningArrays[i][3]]
+
+    if (squareOne.innerHTML === '1' &&
+        squareTwo.innerHTML === '1' &&
+        squareThree.innerHTML === '1' &&
+        squareFour.innerHTML === '1') {
+            winnerAnnouncement.textContent = `Player 1 is the winner!`
+        }
+    if (squareOne.innerHTML === '2' &&
+        squareTwo.innerHTML === '2' &&
+        squareThree.innerHTML === '2' &&
+        squareFour.innerHTML === '2') {
+            winnerAnnouncement.textContent = `Player 2 is the winner!`
+        } 
+    }
+}
+
+
 const winningArrays = [
     [0, 1, 2, 3],
     [41, 40, 39, 38],
@@ -174,27 +199,3 @@ const winningArrays = [
     [12, 19, 26, 33],
     [13, 20, 27, 34],
   ]
-
-function checkWinner () {
-    // 
-    for (let i = 0; i < winningArrays.length; i++) {
-        const squareOne = cellEls[winningArrays[i][0]]
-        const squareTwo = cellEls[winningArrays[i][0]]
-        const squareThree = cellEls[winningArrays[i][2]]
-        const squareFour = cellEls[winningArrays[i][3]]
-
-    if (squareOne.innerHTML === '1' &&
-        squareTwo.innerHTML === '1' &&
-        squareThree.innerHTML === '1' &&
-        squareFour.innerHTML === '1') {
-            winnerAnnouncement.textContent = `Player 1 is the winner!`
-        }
-    if (squareOne.innerHTML === '2' &&
-        squareTwo.innerHTML === '2' &&
-        squareThree.innerHTML === '2' &&
-        squareFour.innerHTML === '2') {
-            winnerAnnouncement.textContent = `Player 2 is the winner!`
-        } 
-    }
-}
-
