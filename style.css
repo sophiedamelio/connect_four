@@ -14,46 +14,10 @@
     margin-right: auto;
 }
 
-#slot-one {
+.slot {
     height: 67vh;
     width: 10.7134vh;
-    background-color: red;
-}
-
-#slot-two {
-    height: 67vh;
-    width: 10.7134vh;
-    background-color: blue;
-}
-
-#slot-three {
-    height: 67vh;
-    width: 10.7134vh;
-    background-color: pink;
-}
-
-#slot-four {
-    height: 67vh;
-    width: 10.7134vh;
-    background-color: brown;
-}
-
-#slot-five {
-    height: 67vh;
-    width: 10.7134vh;
-    background-color: black;
-}
-
-#slot-six {
-    height: 67vh;
-    width: 10.7134vh;
-    background-color: green;
-}
-
-#slot-seven {
-    height: 67vh;
-    width: 10.7134vh;
-    background-color: aqua;
+    background-color: white;
 }
 
 .cell {
@@ -89,42 +53,3 @@
     margin-right: auto;
     padding-bottom: 25px;
 }
-
-/* #winner-announcement {
-    color: black;
-    height: 100px;
-    width: 160px;
-    display: block;
-} */
-
-
-
-/* .grid div {
-    height: 25px;
-    width: 25px;
-} */
-
-
-/* .table {
-    table-layout: fixed;
-    width: 100vh;
-    height: 100vh;
-    border-collapse: collapse;
-    border: 5px solid purple;
-    display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; */
-    /* grid-template-areas: 
-        "td"
-        "tr";
-}
-
-tr {
-    grid-area: tr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-.slot {
-    grid-area: td;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-} */ 

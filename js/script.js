@@ -1,14 +1,14 @@
 
 const players = {
-    one: {
-    name: null,
-    color: 'Pink',
-    number: 1
+    1: {
+        name: null,
+        color: 'Pink',
+        number: 1
     },
-    two: {  
-    name: null,
-    color: 'Pink',
-    number: 1
+    2: {  
+        name: null,
+        color: 'Orange',
+        number: 2
     }
 };
 
@@ -24,22 +24,9 @@ let winnerAnnouncementEl = document.querySelector('#winner-announcement');
 let whoseTurnMessage = document.querySelector('.whose-turn');
 let replayButtonEl = document.querySelector('#replay');
 
-// address these please!!!
-const playerOneNameEl = document.getElementById('player-one-name'); // value?
-const playerTwoNameEl = document.getElementById('player-two-name'); // value?
-
-
 // this makes the two dimensional array that is the grid
 gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 
-
-// event listeners - // address these please!!!
-document.querySelector('#player-one-button').addEventListener('click', (e) => {
-    // render();
-})
-document.querySelector('#player-two-button').addEventListener('click', (e) => {
-    // render();
-})
 
 // this calls the init() function when the replayButtonEl is clicked, resetting the gameboard values
 replayButtonEl.addEventListener('click', e => {
@@ -82,10 +69,12 @@ function handleGridClick(e) {
         for (let i = children.length - 1; i >= 0; i--) {
             if (children[i].innerHTML === '0') {
                 children[i].innerHTML = whoseTurn.toString();
+                children[i].style.backgroundColor = players[whoseTurn].color;
                 break;
             }
         }
     };
+    render();
     switchTurns();
     checkWinner();
 };
@@ -99,6 +88,7 @@ function reload () {
     // this sets the winnerAnnouncementEl text content to be '' initially
     winnerAnnouncementEl.textContent = '';
 };
+
 
 // change whose turn each time a click happens
 function switchTurns() {
@@ -209,3 +199,19 @@ const winningArrays = [
     [12, 19, 26, 33],
     [13, 20, 27, 34],
   ]
+
+
+// input name sections, if I have time:
+
+// address these please!!!
+const playerOneNameEl = document.getElementById('player-one-name'); // value?
+const playerTwoNameEl = document.getElementById('player-two-name'); // value?
+
+// event listeners - // address these please!!!
+document.querySelector('#player-one-button').addEventListener('click', (e) => {
+    // render();
+})
+document.querySelector('#player-two-button').addEventListener('click', (e) => {
+    // render();
+})
+
