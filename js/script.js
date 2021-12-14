@@ -12,36 +12,27 @@ const players = {
     }
 };
 
+// state variables aka MODEL / source of truth for the app
 let whoseTurn;
-
 let winner;
 
-// parts of the DOM we will be constantly updating - like nameEls
 
+
+// cached Element references from the DOM
 let gridEl = document.querySelector('.grid');
+let cellEls = document.querySelectorAll('.cell');
+let winnerAnnouncementEl = document.querySelector('#winner-announcement');
+let whoseTurnMessage = document.querySelector('.whose-turn');
+let replayButtonEl = document.querySelector('#replay');
+const playerOneNameEl = document.getElementById('player-one-name'); // value?
+const playerTwoNameEl = document.getElementById('player-two-name'); // value?
+
 
 // this makes the two dimensional array that is the grid
 gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 
 
-// this needs to change to the divs within the gridEl[0]
-let cellEls = document.querySelectorAll('.cell');
-
-// set all the innerHTML of all slot cells to 0
-// this is a helper function, that sets the innerhtml of each page to 0 and clears the winner announcement.
-// this function is called within init()
-function reload () {
-    cellEls.forEach(cellEls => {
-        cellEls.innerHTML = 0;
-    })
-    winnerAnnouncement.textContent = '';
-};
-
-
-const playerOneNameEl = document.getElementById('player-one-name'); // value?
-const playerTwoNameEl = document.getElementById('player-two-name'); // value?
-
-
+// event listeners
 document.querySelector('#player-one-button').addEventListener('click', (e) => {
     render();
 })
@@ -49,6 +40,22 @@ document.querySelector('#player-one-button').addEventListener('click', (e) => {
 document.querySelector('#player-two-button').addEventListener('click', (e) => {
     render();
 })
+
+// this calls the init() function when the replayButtonEl is clicked, resetting the gameboard values
+replayButtonEl.addEventListener('click', e => {
+    init()
+});
+
+// set all the innerHTML of all slot cells to 0
+// this is a helper function, that sets the innerhtml of each cell to 0 and clears the winner announcement.
+// this function is called within init()
+function reload () {
+    cellEls.forEach(cellEls => {
+        cellEls.innerHTML = 0;
+    })
+    winnerAnnouncementEl.textContent = '';
+};
+
 
 // change whose turn each time a click happens
 function switchTurns() {
@@ -89,13 +96,14 @@ function init() {
     whoseTurn = Math.floor(Math.random() * 2) + 1;
     winner = null;
 
+
     reload();
     switchTurns();
     render();
 
 }
 
-let whoseTurnMessage = document.querySelector('.whose-turn')
+
 
 function render() {
     // update the value of player one and player two to equal the text inputted
@@ -103,9 +111,6 @@ function render() {
 
     whoseTurnMessage.textContent = `It is player ${whoseTurn}'s turn`;
 }
-
-
-let winnerAnnouncement = document.querySelector('#winner-announcement')
 
 
 function checkWinner () {
@@ -122,13 +127,13 @@ function checkWinner () {
         squareTwo.innerHTML === '1' &&
         squareThree.innerHTML === '1' &&
         squareFour.innerHTML === '1') {
-            winnerAnnouncement.textContent = `Player 1 is the winner!`
+            winnerAnnouncementEl.textContent = `Player 1 is the winner!`
         }
     if (squareOne.innerHTML === '2' &&
         squareTwo.innerHTML === '2' &&
         squareThree.innerHTML === '2' &&
         squareFour.innerHTML === '2') {
-            winnerAnnouncement.textContent = `Player 2 is the winner!`
+            winnerAnnouncementEl.textContent = `Player 2 is the winner!`
         } 
     }
 }
