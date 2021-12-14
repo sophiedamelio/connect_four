@@ -114,20 +114,20 @@ function checkWinner () {
         // console.log(squareOne.style.backgroundColor)
     // nested for loop to ? ^ this prints ALL the possible backgrounds, mostly white, and these if statments 
     // are not working
-    if (squareOne.style.backgroundColor === 'Pink' &&
-        squareTwo.style.backgroundColor === 'Pink' &&
-        squareThree.style.backgroundColor === 'Pink' &&
-        squareFour.style.backgroundColor === 'Pink') {
-            // can I get this into the render function?
-            console.log(squareOne.style.backgroundColor)
-            winnerAnnouncementEl.textContent = `Player 1 is the winner!`
-        }
-    if (squareOne.style.backgroundColor === 'Orange' &&
-        squareOne.style.backgroundColor === 'Orange' &&
-        squareOne.style.backgroundColor === 'Orange' &&
-        squareOne.style.backgroundColor === 'Orange') {
-            // can I get this into the render function?
-            winnerAnnouncementEl.textContent = `Player 2 is the winner!`
+        if (squareOne.style.backgroundColor === 'pink' &&
+            squareTwo.style.backgroundColor === 'pink' &&
+            squareThree.style.backgroundColor === 'pink' &&
+            squareFour.style.backgroundColor === 'pink') {
+                // can I get this into the render function?
+                // console.log(squareOne.style.backgroundColor)
+                winnerAnnouncementEl.textContent = `Player 1 is the winner!`
+            }
+        if (squareOne.style.backgroundColor === 'orange' &&
+            squareTwo.style.backgroundColor === 'orange' &&
+            squareThree.style.backgroundColor === 'orange' &&
+            squareFour.style.backgroundColor === 'orange') {
+                // can I get this into the render function?
+                winnerAnnouncementEl.textContent = `Player 2 is the winner!`
         } 
     }
 }
@@ -180,9 +180,9 @@ const winningArrays = [
     [39, 31, 23, 15],
     [1, 9, 17, 25],
     [40, 32, 24, 16],
-    [9, 17, 25, 33],
+    [9, 7, 25, 33],
     [8, 16, 24, 32],
-    [11, 17, 23, 29],
+    [11, 7, 23, 29],
     [12, 18, 24, 30],
     [1, 2, 3, 4],
     [5, 4, 3, 2],
@@ -203,7 +203,8 @@ const winningArrays = [
     [11, 18, 25, 32],
     [12, 19, 26, 33],
     [13, 20, 27, 34],
-  ]
+    [9, 17, 25, 33],
+  ];
 
 
 // input name sections, if I have time:
