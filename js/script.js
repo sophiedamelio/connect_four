@@ -204,14 +204,14 @@ const winningArrays = [
 // input name sections, if I have time:
 
 // address these please!!!
-const playerOneNameEl = document.getElementById('player-one-name'); // value?
-const playerTwoNameEl = document.getElementById('player-two-name'); // value?
+// const playerOneNameEl = document.getElementById('player-one-name'); // value?
+// const playerTwoNameEl = document.getElementById('player-two-name'); // value?
 
-// event listeners - // address these please!!!
-document.querySelector('#player-one-button').addEventListener('click', (e) => {
-    // render();
-})
-document.querySelector('#player-two-button').addEventListener('click', (e) => {
-    // render();
-})
+// // event listeners - // address these please!!!
+// document.querySelector('#player-one-button').addEventListener('click', (e) => {
+//     // render();
+// })
+// document.querySelector('#player-two-button').addEventListener('click', (e) => {
+//     // render();
+// })
 
