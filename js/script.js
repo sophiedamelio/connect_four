@@ -24,6 +24,8 @@ let cellEls = document.querySelectorAll('.cell');
 let winnerAnnouncementEl = document.querySelector('#winner-announcement');
 let whoseTurnMessage = document.querySelector('.whose-turn');
 let replayButtonEl = document.querySelector('#replay');
+
+// address these please!!!
 const playerOneNameEl = document.getElementById('player-one-name'); // value?
 const playerTwoNameEl = document.getElementById('player-two-name'); // value?
 
@@ -32,13 +34,12 @@ const playerTwoNameEl = document.getElementById('player-two-name'); // value?
 gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 
 
-// event listeners
+// event listeners - // address these please!!!
 document.querySelector('#player-one-button').addEventListener('click', (e) => {
-    render();
+    // render();
 })
-
 document.querySelector('#player-two-button').addEventListener('click', (e) => {
-    render();
+    // render();
 })
 
 // this calls the init() function when the replayButtonEl is clicked, resetting the gameboard values
@@ -46,27 +47,7 @@ replayButtonEl.addEventListener('click', e => {
     init()
 });
 
-// set all the innerHTML of all slot cells to 0
-// this is a helper function, that sets the innerhtml of each cell to 0 and clears the winner announcement.
-// this function is called within init()
-function reload () {
-    cellEls.forEach(cellEls => {
-        cellEls.innerHTML = 0;
-    })
-    winnerAnnouncementEl.textContent = '';
-};
-
-
-// change whose turn each time a click happens
-function switchTurns() {
-    if (whoseTurn === 1) {
-        whoseTurn = 2;
-    } else {
-        whoseTurn = 1;
-    }
-};
-
-
+// this is the event listener on the entire gridEl
 document.querySelector('.grid').addEventListener('click', e => {
     
     if (e.target.className === 'cell') {
@@ -87,30 +68,42 @@ document.querySelector('.grid').addEventListener('click', e => {
 
     switchTurns();
     checkWinner();
-    render();
 });
 
+// this function is being called when the page loads
+init();
 
-
+// initializes state variables
+// updates the model with the initial values of the game (update the state with the initial values)
 function init() {
     whoseTurn = Math.floor(Math.random() * 2) + 1;
     winner = null;
 
-
-    reload();
     switchTurns();
     render();
-
 }
 
-
-
+// visualize the state
 function render() {
-    // update the value of player one and player two to equal the text inputted
-    // to their respective input boxes
-
     whoseTurnMessage.textContent = `It is player ${whoseTurn}'s turn`;
+    // this sets the winnerAnnouncementEl text content to be '' initially
+    winnerAnnouncementEl.textContent = '';
+    // set all the innerHTML of all slot cells to 0
+    // this function is ONLY called within init()
+    cellEls.forEach(cellEls => {
+        cellEls.innerHTML = 0;
+    })
 }
+
+
+// change whose turn each time a click happens
+function switchTurns() {
+    if (whoseTurn === 1) {
+        whoseTurn = 2;
+    } else {
+        whoseTurn = 1;
+    }
+};
 
 
 function checkWinner () {
