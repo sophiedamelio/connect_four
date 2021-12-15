@@ -2,12 +2,12 @@
 const players = {
     1: {
         name: null,
-        color: 'Pink',
+        color: 'pink',
         number: 1
     },
     2: {  
         name: null,
-        color: 'Orange',
+        color: 'orange',
         number: 2
     }
 };
@@ -46,8 +46,6 @@ function init() {
     winner = null;
 
     reload();
-    switchTurns();
-    render();
 }
 
 // visualize the state
@@ -74,8 +72,14 @@ function handleGridClick(e) {
             }
         }
     };
+    // this makes it so that whoseTurn switches off each time a click happens
+    if (whoseTurn === 1) {
+        whoseTurn = 2;
+    } else {
+        whoseTurn = 1;
+    }
+
     render();
-    switchTurns();
     checkWinner();
 };
 
@@ -90,15 +94,6 @@ function reload () {
     winnerAnnouncementEl.textContent = '';
 };
 
-
-// change whose turn each time a click happens
-function switchTurns() {
-    if (whoseTurn === 1) {
-        whoseTurn = 2;
-    } else {
-        whoseTurn = 1;
-    }
-};
 
 
 function checkWinner () {
