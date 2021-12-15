@@ -7,11 +7,12 @@
     <title>Connect Four</title>
     <script defer src="js/script.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/yei3ohl.css">
 </head>
 <body>
     <div class="header">
         <h1>Connect Four</h1>
-        <h2>Short instructions here</h2>
+        <h3 id="instructions">Click anywhere on the slot you would like to place your chip. It will fall to the lowest available spot. </br> Try to get four in a row of your color in any direction - across, down, up, or diagonally.</h3>
     </div>
     <!-- <div class="input-names">
         <label for="player-one-name">Player One Name:</label>
@@ -23,10 +24,13 @@
         <input type="text" id="player-two-name">
         <button id="player-two-button">Submit</button>
     </div> -->
-    <div class="announcements"></div>
+    <div class="announcements">
         <h3 class="whose-turn"></h3>
         <h2 id="winner-announcement"></h2>
-        <button id="replay">Replay!</button>
+        <div class="player-colors">
+            <h3>Player 1 is FIX THIS</h3>
+            <h3>Player 2 is orange</h3>
+        </div>
     </div>
     <div class="grid">
         <div id="slot-one" class="slot">
@@ -86,5 +90,6 @@
             <div class="cell"></div>
         </div>
     </div>
+    <button id="replay">R E P L A Y</button>
 </body>
 </html>

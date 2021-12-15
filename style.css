@@ -1,55 +1,73 @@
 
-/* * {
-    display: gri
-} */
+
+* {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: ivymode, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgb(159, 129, 134);
+    color: white;
+}
 
 .grid {
-    border: 1px solid;
-    height: 67vh;
-    width: 75vh;
+    height: 55vh;
+    width: 55vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
 }
 
 .slot {
-    height: 67vh;
-    width: 10.7134vh;
-    /* background-color: white; */
+    height: 55vh;
+    width: 9.9vh;
+    background-color: rgb(228, 228, 228);
 }
 
 .cell {
-    border: 2px solid black;
-    height: 10.7134vh;
+    height: 9.9vh;
+    border-radius: 50%;
 }
 
-.whose-turn .winner-announcement {
-    color: black;
+.announcements {
     height: 100px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+#replay {
+    display: flex;
+    align-self: center;
+    margin: 20px;
+    max-width: fit-content;
+    background-color: white;
+    font-size: large;
+    background-color: rgb(227, 168, 168);
+    border-color: white;
 }
 
 .header {
-    color: black;
     height: 150px;
-    width: 300px;
-    display: grid;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    display: flex;
+    align-items: center;
 }
 
-.input-names {
-    color: black;
-    height: 200px;
-    width: 160px;
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 25px;
+
+title {
+    display: none;
 }
+
+ 
+#instructions {
+    font-family: brandon-grotesque,sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
