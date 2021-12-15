@@ -11,6 +11,7 @@
     color: white;
 }
 
+
 .grid {
     height: 55vh;
     width: 55vh;
@@ -56,6 +57,7 @@
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -69,5 +71,24 @@ title {
     font-family: brandon-grotesque,sans-serif;
     font-weight: 300;
     font-style: normal;
+    text-align: center;
+
 }
 
+#orange {
+    font-family: brandon-grotesque,sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+    background-color: orange;
+    color: rgb(159, 129, 134);
+}
+
+#pink {
+    font-family: brandon-grotesque,sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+    background-color: pink;
+    color: rgb(159, 129, 134);
+}

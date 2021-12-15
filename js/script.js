@@ -45,6 +45,7 @@ function init() {
     whoseTurn = Math.floor(Math.random() * 2) + 1;
     winner = null;
 
+    render();
     reload();
 }
 
@@ -72,6 +73,7 @@ function handleGridClick(e) {
             }
         }
     };
+
     // this makes it so that whoseTurn switches off each time a click happens
     if (whoseTurn === 1) {
         whoseTurn = 2;
