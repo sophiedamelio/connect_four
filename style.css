@@ -33,7 +33,7 @@
 }
 
 .announcements {
-    height: 100px;
+    height: 10vh;
     display: flex;
     align-items: center;
     margin-bottom: 10px;
