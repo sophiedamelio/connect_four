@@ -34,7 +34,7 @@ replayButtonEl.addEventListener('click', e => {
 });
 
 // this is the event listener on the entire gridEl
-document.querySelector('.grid').addEventListener('click', handleGridClick)
+// document.querySelector('.grid').addEventListener('click', handleGridClick, true)
 
 // this function is being called when the page loads
 init();
@@ -72,9 +72,6 @@ function handleGridClick(e) {
                 break;
             }
         }
-    }
-    else if (winnerAnnouncementEl.textContent !== '') {
-        break;
     };
 
     // this makes it so that whoseTurn switches off each time a click happens
@@ -96,6 +93,8 @@ function reload () {
     })
     // this sets the winnerAnnouncementEl text content to be '' initially
     winnerAnnouncementEl.textContent = '';
+    // adds an event listener every time init() is called
+    document.querySelector('.grid').addEventListener('click', handleGridClick, true)
 };
 
 
@@ -118,20 +117,18 @@ function checkWinner () {
             squareTwo.style.backgroundColor === 'rgb(229, 184, 182)' &&
             squareThree.style.backgroundColor === 'rgb(229, 184, 182)' &&
             squareFour.style.backgroundColor === 'rgb(229, 184, 182)') {
-                // can I get this into the render function?
-                // console.log(squareOne.style.backgroundColor)
                 winnerAnnouncementEl.textContent = `Player 1 is the winner!`
-                // console.log(winningArrays[i]);
-                // return;
+                // removes event listener when a winner is declared
+                document.querySelector('.grid').removeEventListener('click', handleGridClick, true)
+
             }
         if (squareOne.style.backgroundColor === 'rgb(216, 123, 87)' &&
             squareTwo.style.backgroundColor === 'rgb(216, 123, 87)' &&
             squareThree.style.backgroundColor === 'rgb(216, 123, 87)' &&
             squareFour.style.backgroundColor === 'rgb(216, 123, 87)') {
-                // can I get this into the render function?
                 winnerAnnouncementEl.textContent = `Player 2 is the winner!`
-                // console.log(winningArrays[i]);
-                // return;
+                document.querySelector('.grid').removeEventListener('click', handleGridClick, true)
+                console.log('the event listener is removed?')
         }
     }
 }
