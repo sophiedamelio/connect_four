@@ -2,7 +2,7 @@
 
 The game is connect four, and the objective is to successfully place four chips in a row (either diagonally, across, up, or down).
 
-screenshots here
+![is this text](https://i.imgur.com/ZginIfJ.png)
 
 The technologies I used to build this game are:
 - JavaScript
