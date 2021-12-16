@@ -72,6 +72,9 @@ function handleGridClick(e) {
                 break;
             }
         }
+    }
+    else if (winnerAnnouncementEl.textContent !== '') {
+        break;
     };
 
     // this makes it so that whoseTurn switches off each time a click happens
