@@ -61,6 +61,7 @@ function handleGridClick(e) {
 
         // e.target.parentElement = the slot that was clicked on
         let children = e.target.parentElement.children
+        console.log(children)
 
         // this accesses the clicked on slot's children at an index of 0 (tallest cell)
         // console.log(children[0].innerHTML);
@@ -132,6 +133,13 @@ function checkWinner () {
         }
     }
 }
+
+// their own loop through children?? if (all cellEls !== white) {
+//     winner annuouncement tie
+// }
+// tie function 
+// if all cellEls.style.background (children?) do not equal white
+// winnerAccouncementEl = tie message
 
 
 const winningArrays = [

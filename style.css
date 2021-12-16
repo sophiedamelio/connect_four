@@ -1,5 +1,6 @@
 
-/* orange
+/* deisgn notes
+orange
 rgb(216, 123, 87)
 pink
 'rgb(229, 184, 182)'
@@ -22,7 +23,7 @@ pink
     justify-content: center;
     left: 82vh;
     position: fixed;
-    top: 45vh;
+    top: 50vh;
 }
 
 .slot {
@@ -55,7 +56,7 @@ h1 {
     background-color: rgb(250, 250, 250);
     border: 0.5vh solid rgb(229, 184, 182);
     position: fixed;
-    top: 90vh;
+    top: 93vh;
     padding: 1vh;
     border-radius: 7%;
     left: 97vh;
