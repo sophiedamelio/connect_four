@@ -2,7 +2,7 @@
 const players = {
     1: {
         name: null,
-        color: 'pink',
+        color: 'rgb(229, 184, 182)',
         number: 1
     },
     2: {  
@@ -112,10 +112,10 @@ function checkWinner () {
         // console.log(squareOne.style.backgroundColor)
     // nested for loop to ? ^ this prints ALL the possible backgrounds, mostly white, and these if statments 
     // are not working
-        if (squareOne.style.backgroundColor === 'pink' &&
-            squareTwo.style.backgroundColor === 'pink' &&
-            squareThree.style.backgroundColor === 'pink' &&
-            squareFour.style.backgroundColor === 'pink') {
+        if (squareOne.style.backgroundColor === 'rgb(229, 184, 182)' &&
+            squareTwo.style.backgroundColor === 'rgb(229, 184, 182)' &&
+            squareThree.style.backgroundColor === 'rgb(229, 184, 182)' &&
+            squareFour.style.backgroundColor === 'rgb(229, 184, 182)') {
                 // can I get this into the render function?
                 // console.log(squareOne.style.backgroundColor)
                 winnerAnnouncementEl.textContent = `Player 1 is the winner!`
