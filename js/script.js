@@ -131,7 +131,6 @@ function checkWinner () {
                 // console.log(winningArrays[i]);
                 // return;
         } 
-
     }
 }
 
