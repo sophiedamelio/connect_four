@@ -7,7 +7,7 @@ const players = {
     },
     2: {  
         name: null,
-        color: 'orange',
+        color: 'rgb(216, 123, 87)',
         number: 2
     }
 };
@@ -122,10 +122,10 @@ function checkWinner () {
                 // console.log(winningArrays[i]);
                 // return;
             }
-        if (squareOne.style.backgroundColor === 'orange' &&
-            squareTwo.style.backgroundColor === 'orange' &&
-            squareThree.style.backgroundColor === 'orange' &&
-            squareFour.style.backgroundColor === 'orange') {
+        if (squareOne.style.backgroundColor === 'rgb(216, 123, 87)' &&
+            squareTwo.style.backgroundColor === 'rgb(216, 123, 87)' &&
+            squareThree.style.backgroundColor === 'rgb(216, 123, 87)' &&
+            squareFour.style.backgroundColor === 'rgb(216, 123, 87)') {
                 // can I get this into the render function?
                 winnerAnnouncementEl.textContent = `Player 2 is the winner!`
                 // console.log(winningArrays[i]);

@@ -1,14 +1,16 @@
 
+/* orange
+rgb(216, 123, 87)
+pink
+rgb(229, 184, 182)
+*/
 
 * {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     font-family: ivymode, sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color: rgb(159, 129, 134);
-    color: white;
+    background-color: rgb(250, 250, 250);
+    color: rgb(118, 99, 102);
 }
 
 
@@ -24,7 +26,7 @@
 }
 
 .slot {
-    height: 40vh;
+    height: 42vh;
     width: 7vh;
     background-color: rgb(228, 228, 228);
 }
@@ -35,24 +37,32 @@
 }
 
 .announcements {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 #replay {
-    align-self: center;
+    display: flex;
     font-size: large;
-    background-color: rgb(227, 168, 168);
-    border: 0.5vh solid white;
+    background-color: rgb(250, 250, 250);
+    border: 0.5vh solid rgb(229, 184, 182);
     position: relative;
     top: 9vh;
     padding: 1vh;
     border-radius: 7%;
-    
+    left: 47%;
 }
 
-.header {
-    justify-content: center;
-    align-items: center;
+#replay:hover {
+    background-color: rgb(229, 184, 182);
 }
 
 
@@ -67,17 +77,26 @@ title {
     font-style: normal;
     text-align: center;
     font-size: x-large;
-    display: contents;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#color-key {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #orange {
-    font-family: brandon-grotesque,sans-serif;
+    font-family: brandon-grotesque, sans-serif;
     font-weight: 600;
     font-style: normal;
     text-align: center;
-    background-color: orange;
-    color: rgb(159, 129, 134);
-
+    background-color: rgb(216, 123, 87);
+    color: white;
 }
 
 #pink {
@@ -85,6 +104,6 @@ title {
     font-weight: 600;
     font-style: normal;
     text-align: center;
-    background-color: pink;
-    color: rgb(159, 129, 134);
+    background-color: rgb(229, 184, 182);
+    color: white;
 }
