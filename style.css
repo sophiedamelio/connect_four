@@ -1,9 +1,7 @@
 
-/* deisgn notes
-orange
-rgb(216, 123, 87)
-pink
-'rgb(229, 184, 182)'
+/* deisgn notes:
+the orange that is used is: rgb(216, 123, 87)
+the pink that is used is: rgb(229, 184, 182)
 */
 
 * {
@@ -14,64 +12,12 @@ pink
     color: rgb(118, 99, 102);
 }
 
-
-.grid {
-    height: 40vh;
-    width: 40vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    justify-content: center;
-    left: 82vh;
-    position: fixed;
-    top: 50vh;
-}
-
-.slot {
-    height: 42vh;
-    width: 7vh;
-    background-color: rgb(228, 228, 228);
-}
-
-.cell {
-    height: 7vh;
-    border-radius: 50%;
-}
-
-.announcements {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    flex-flow: column;
-}
-
-h1 {
+#title {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#replay {
-    display: flex;
-    font-size: large;
-    background-color: rgb(250, 250, 250);
-    border: 0.5vh solid rgb(229, 184, 182);
-    position: fixed;
-    top: 93vh;
-    padding: 1vh;
-    border-radius: 7%;
-    left: 97vh;
-}
-
-#replay:hover {
-    background-color: rgb(229, 184, 182);
-}
-
-
-title {
-    display: none;
-}
-
- 
 #instructions {
     font-family: brandon-grotesque,sans-serif;
     font-weight: 300;
@@ -83,7 +29,6 @@ title {
     justify-content: center;
     align-items: center;
 }
-
 
 #color-key {
     display: flex;
@@ -107,4 +52,49 @@ title {
     text-align: center;
     background-color: rgb(229, 184, 182);
     color: white;
+}
+
+.announcements {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.grid {
+    height: 40vh;
+    width: 40vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    left: 82vh;
+    position: fixed;
+    top: 50vh;
+}
+
+.slot {
+    height: 42vh;
+    width: 7vh;
+    background-color: rgb(228, 228, 228);
+}
+
+.cell {
+    height: 7vh;
+    border-radius: 50%;
+}
+
+#replay {
+    display: flex;
+    font-size: large;
+    background-color: rgb(250, 250, 250);
+    border: 0.5vh solid rgb(229, 184, 182);
+    position: fixed;
+    top: 93vh;
+    padding: 1vh;
+    border-radius: 7%;
+    left: 97vh;
+}
+
+#replay:hover {
+    background-color: rgb(229, 184, 182);
 }

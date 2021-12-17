@@ -1,11 +1,10 @@
-
 // constant variables, will not change throughout the game
 const players = {
     1: {
         name: null,
         color: 'rgb(229, 184, 182)',
         number: 1
-    },
+    }, 
     2: {  
         name: null,
         color: 'rgb(216, 123, 87)',
@@ -25,7 +24,7 @@ let winnerAnnouncementEl = document.querySelector('#winner-announcement');
 let whoseTurnMessage = document.querySelector('.whose-turn');
 let replayButtonEl = document.querySelector('#replay');
 
-// this creates the two dimensional array that is the grid
+// this creates the two dimensional array that is the grid. The upper left corner is 0, bottom right corner is 41, for a total of 42 cells
 gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 
 // this event listeneter is attached to the replay button, and calls the init() function when clicked, resetting the game to be played again
@@ -33,7 +32,7 @@ replayButtonEl.addEventListener('click', e => {
     init()
 });
 
-// this envokes the init() function immediately upon the page loading
+// this envokes the init() function when the page loads
 init();
 
 // this function initializes state variables, updating the model with the initial values of the game
@@ -50,7 +49,7 @@ function init() {
     render();
 }
 
-// this function visualize the state variables
+// this function visualizes the state variables
 function render() {
     whoseTurnMessage.textContent = `It is player ${whoseTurn}'s turn`;
 }
@@ -65,22 +64,22 @@ function handleGridClick(e) {
             if (children[i].style.backgroundColor === 'white') {
                 children[i].style.backgroundColor = players[whoseTurn].color;
                 break;
-            }
-        }
+            };
+        };
     };
 
     // this updates the value of the variable count by adding 1 every time a click is registered, and renders a tie message when the entire board has been filled and no winner announcement has been made.
     count++;
     if (count >= 42 && winnerAnnouncementEl.textContent === '') {
         winnerAnnouncementEl.textContent = `It is a tie! No one wins.`
-    }
+    };
 
     // this updates the whoseTurn variable so that it switches off between the players each time a click happens
     if (whoseTurn === 1) {
         whoseTurn = 2;
     } else {
         whoseTurn = 1;
-    }
+    };
 
     // this function is called to update the view each time a click is registered
     render();
@@ -88,39 +87,39 @@ function handleGridClick(e) {
     checkWinner();
 };
 
-// this function checks for a winner, and is called above, each time a click occurs
+// this function checks for a winner and is called above, each time a click occurs
 function checkWinner () {
-    // this for loop is checking each array in winningArrays
+    // this for loop goes through each index of each winning array within winningArrays (index stands for each of the four potential numbers that correspond to the grid)
     for (let i = 0; i < winningArrays.length; i++) {
-        // if winningArrays at each index i's [0], 1, 2, 3 correspond with each squareOne, two, three, 
-    //then there is a winner
-        // this declares squareOne, SquareTwo, squareThree, and squareFour, which represent the four chips to be tested for a win
-        // th
+        // this declares squareOne, SquareTwo, squareThree, and squareFour, which represent the four cells to be tested for a win
         const squareOne = cellEls[winningArrays[i][0]]
         const squareTwo = cellEls[winningArrays[i][1]]
         const squareThree = cellEls[winningArrays[i][2]]
         const squareFour = cellEls[winningArrays[i][3]]
-
+        // this is to say that if all 4 of the squares being tested are pink, then player 1 wins
         if (squareOne.style.backgroundColor === 'rgb(229, 184, 182)' &&
             squareTwo.style.backgroundColor === 'rgb(229, 184, 182)' &&
             squareThree.style.backgroundColor === 'rgb(229, 184, 182)' &&
             squareFour.style.backgroundColor === 'rgb(229, 184, 182)') {
+                // this updates the text content of winnerAnnouncementEl if these ^ conditions are all met
                 winnerAnnouncementEl.textContent = `Player 1 is the winner!`
-                // this removes event listener when a winner is declared, so that you cannot keep playing
+                // this removes the event listener when a winner is declared, so that you cannot keep playing
                 document.querySelector('.grid').removeEventListener('click', handleGridClick, true)
-            }
+        };
+        // this is to say that if all 4 of the squares being tested are orange, then player 2 wins
         if (squareOne.style.backgroundColor === 'rgb(216, 123, 87)' &&
             squareTwo.style.backgroundColor === 'rgb(216, 123, 87)' &&
             squareThree.style.backgroundColor === 'rgb(216, 123, 87)' &&
             squareFour.style.backgroundColor === 'rgb(216, 123, 87)') {
+                // this updates the text content of winnerAnnouncementEl if these ^ conditions are all met
                 winnerAnnouncementEl.textContent = `Player 2 is the winner!`
-                // this removes event listener when a winner is declared, so that you cannot keep playing
+                // this removes the event listener when a winner is declared, so that you cannot keep playing
                 document.querySelector('.grid').removeEventListener('click', handleGridClick, true)
-        }
-    }
-}
+        };
+    };
+};
 
-
+// these are the winning arrays that get looped through in the checkWinner() function
 const winningArrays = [
     // horizontal - 24 possibilities
     [0, 6, 12, 18], [6, 12, 18, 24], [18, 24, 30, 36], [1, 7, 13, 19], [7, 13, 19, 25], [13, 19, 25, 31], [19, 25, 31, 37], [2, 8, 14, 20],  [8, 14, 20, 26], [14, 20, 26, 32], [20, 26, 32, 38], [3, 9, 15, 21], [9, 15, 21, 27],  [15, 21, 27, 33], [21, 27, 33, 39], [4, 10, 16, 22], [10, 16, 22, 28], [16, 22, 28, 34], [22, 28, 34, 40], [5, 11, 17, 23], [11, 17, 23, 29], [17, 23, 29, 35], [23, 29, 35, 41],
