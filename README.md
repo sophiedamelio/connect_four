@@ -1,7 +1,5 @@
 ## Connect Four Browser Game
 
----
-
 The game is connect four, and the objective is to successfully place four chips in a row (either diagonally, across, up, or down).
 
 Rooted in Tic Tac Toe logic, Connect Four has over four trillion gameboard positions. It is has been a well loved game dating back to 1974, while speculated to have been played many years earlier. There are actually Connect Four tournaments held annually across the globe [like this one](https://www.luvimmigration.com/connect-4.html).
@@ -42,5 +40,3 @@ To play the game, simply click anywhere on the slot you wish to place your chip,
 - Make an alert pop up if you try to place a chip in a slot that is entirely filled up.
 
 - Make the click event listener right above the gameboard, so that you can only click at the top of each slot. Additionally add animation so that it looks like the chips are actually falling to the lowest available spot.
-
----
