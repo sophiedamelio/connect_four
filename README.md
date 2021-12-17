@@ -44,6 +44,3 @@ To play the game, simply click anywhere on the slot you wish to place your chip,
 - Make the click event listener right above the gameboard, so that you can only click at the top of each slot. Additionally add animation so that it looks like the chips are actually falling to the lowest available spot.
 
 ---
-
-
-
