@@ -64,14 +64,8 @@ brown: rgb(118, 99, 102)
 }
 
 .grid {
-    height: 40vh;
-    width: 40vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
     justify-content: center;
-    left: 82vh;
-    position: fixed;
-    top: 50vh;
 }
 
 .slot {
@@ -86,17 +80,31 @@ brown: rgb(118, 99, 102)
 }
 
 #replay {
-    display: flex;
     font-size: large;
     background-color: rgb(250, 250, 250);
     border: 0.5vh solid rgb(229, 184, 182);
-    position: fixed;
-    top: 93vh;
     padding: 1vh;
     border-radius: 7%;
-    left: 97vh;
+    margin: 5vh 0vh 5vh 0vh;
+}
+
+.replay {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-flow: column;
 }
 
 #replay:hover {
     background-color: rgb(229, 184, 182);
+}
+
+@media only screen and (max-width: 600px) {
+    #instructions {
+        font-size: large;
+        
+    }
+    #color-key {
+        font-size: medium;
+    }
 }
