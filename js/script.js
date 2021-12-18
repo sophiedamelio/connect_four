@@ -12,6 +12,21 @@ const players = {
     }
 };
 
+// these are the winning arrays that get looped through in the checkWinner() function
+const winningArrays = [
+    // horizontal - 24 possibilities
+    [0, 6, 12, 18], [6, 12, 18, 24], [18, 24, 30, 36], [1, 7, 13, 19], [7, 13, 19, 25], [13, 19, 25, 31], [19, 25, 31, 37], [2, 8, 14, 20],  [8, 14, 20, 26], [14, 20, 26, 32], [20, 26, 32, 38], [3, 9, 15, 21], [9, 15, 21, 27],  [15, 21, 27, 33], [21, 27, 33, 39], [4, 10, 16, 22], [10, 16, 22, 28], [16, 22, 28, 34], [22, 28, 34, 40], [5, 11, 17, 23], [11, 17, 23, 29], [17, 23, 29, 35], [23, 29, 35, 41],
+    
+    // vertical - 21 possibilities
+    [0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5], [6, 7, 8, 9], [7, 8, 9, 10], [8, 9, 10, 11], [12, 13, 14, 15], [13, 14, 15, 16], [14, 15, 16, 17], [18, 19, 20, 21], [19, 20, 21, 22], [20, 21, 22, 23], [24, 25, 26, 27], [25, 26, 27, 28], [26, 27, 28, 29], [30, 31, 32, 33], [31, 32, 33, 34], [32, 33, 34, 35], [36, 37, 38, 39], [37, 38, 39, 40], [38, 39, 40, 41],
+    
+    // diagonal - left to right - 12 possibilities
+    [0, 7, 14, 21], [7, 14, 21, 28], [14, 21, 28, 35], [1, 8, 15, 22], [8, 15, 22, 29], [2, 9, 16, 23], [6, 13, 20, 27], [13, 20, 27, 34], [20, 27, 34, 41], [12, 19, 26, 33], [29, 26, 33, 40], [18, 25, 32, 39],
+
+    // diagonal - right to left - 12 possibilities
+    [36, 31, 26, 21], [31, 26, 21, 16], [26, 21, 16, 11], [37, 32, 27, 22], [32, 27, 22, 17], [38, 33, 28, 23], [30, 25, 20, 15], [25, 20, 15, 10], [20, 15, 10, 5], [24, 19, 14, 9], [19, 14, 9, 4], [18, 13, 8, 3]
+];
+
 // state variables
 let whoseTurn;
 let winner;
@@ -29,8 +44,20 @@ gridEl = new Array(7).fill(0).map(() => new Array(6).fill(0));
 
 // this event listeneter is attached to the replay button, and calls the init() function when clicked, resetting the game to be played again
 replayButtonEl.addEventListener('click', e => {
-    init()
+    reload();
+    // init();
 });
+
+function reload() {
+    whoseTurn = Math.floor(Math.random() * 2) + 1;
+    winner = null;
+    count = 0;
+    winnerAnnouncementEl.textContent = '';
+    document.querySelector('.grid').addEventListener('click', handleGridClick, true)
+    cellEls.forEach(cellEls => {
+        cellEls.style.backgroundColor = 'white';
+    })
+}
 
 // this envokes the init() function when the page loads
 init();
@@ -52,20 +79,22 @@ function init() {
 // this function visualizes the state variables
 function render() {
     whoseTurnMessage.textContent = `It is player ${whoseTurn}'s turn`;
+
+    // this for loop goes through each cell of the slot that was clicked on, and changes the color of the lowest available cell to the color of the player whose turn it is
+    for (let i = window.children.length - 1; i >= 0; i--) {
+        if (window.children[i].style.backgroundColor === 'white') {
+            window.children[i].style.backgroundColor = players[whoseTurn].color;
+            break;
+        };
+    };
 }
 
 // this is the controller function - it updates the state when the user click interaction happpens on the grid
 function handleGridClick(e) {
     if (e.target.className === 'cell') {
         // e.target.parentElement is the slot that was clicked on
-        let children = e.target.parentElement.children
-        // this for loop goes through each cell of the slot that was clicked on, and changes the color of the lowest available cell to the color of the player whose turn it is
-        for (let i = children.length - 1; i >= 0; i--) {
-            if (children[i].style.backgroundColor === 'white') {
-                children[i].style.backgroundColor = players[whoseTurn].color;
-                break;
-            };
-        };
+        // this declares a global varibale that is used in the render function
+        window.children = e.target.parentElement.children
     };
 
     // this updates the value of the variable count by adding 1 every time a click is registered, and renders a tie message when the entire board has been filled and no winner announcement has been made.
@@ -119,17 +148,3 @@ function checkWinner () {
     };
 };
 
-// these are the winning arrays that get looped through in the checkWinner() function
-const winningArrays = [
-    // horizontal - 24 possibilities
-    [0, 6, 12, 18], [6, 12, 18, 24], [18, 24, 30, 36], [1, 7, 13, 19], [7, 13, 19, 25], [13, 19, 25, 31], [19, 25, 31, 37], [2, 8, 14, 20],  [8, 14, 20, 26], [14, 20, 26, 32], [20, 26, 32, 38], [3, 9, 15, 21], [9, 15, 21, 27],  [15, 21, 27, 33], [21, 27, 33, 39], [4, 10, 16, 22], [10, 16, 22, 28], [16, 22, 28, 34], [22, 28, 34, 40], [5, 11, 17, 23], [11, 17, 23, 29], [17, 23, 29, 35], [23, 29, 35, 41],
-    
-    // vertical - 21 possibilities
-    [0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5], [6, 7, 8, 9], [7, 8, 9, 10], [8, 9, 10, 11], [12, 13, 14, 15], [13, 14, 15, 16], [14, 15, 16, 17], [18, 19, 20, 21], [19, 20, 21, 22], [20, 21, 22, 23], [24, 25, 26, 27], [25, 26, 27, 28], [26, 27, 28, 29], [30, 31, 32, 33], [31, 32, 33, 34], [32, 33, 34, 35], [36, 37, 38, 39], [37, 38, 39, 40], [38, 39, 40, 41],
-    
-    // diagonal - left to right - 12 possibilities
-    [0, 7, 14, 21], [7, 14, 21, 28], [14, 21, 28, 35], [1, 8, 15, 22], [8, 15, 22, 29], [2, 9, 16, 23], [6, 13, 20, 27], [13, 20, 27, 34], [20, 27, 34, 41], [12, 19, 26, 33], [29, 26, 33, 40], [18, 25, 32, 39],
-
-    // diagonal - right to left - 12 possibilities
-    [36, 31, 26, 21], [31, 26, 21, 16], [26, 21, 16, 11], [37, 32, 27, 22], [32, 27, 22, 17], [38, 33, 28, 23], [30, 25, 20, 15], [25, 20, 15, 10], [20, 15, 10, 5], [24, 19, 14, 9], [19, 14, 9, 4], [18, 13, 8, 3]
-];
