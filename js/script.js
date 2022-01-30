@@ -131,7 +131,7 @@ function checkWinner () {
             squareThree.style.backgroundColor === 'rgb(229, 184, 182)' &&
             squareFour.style.backgroundColor === 'rgb(229, 184, 182)') {
                 // this updates the text content of winnerAnnouncementEl if these ^ conditions are all met
-                winnerAnnouncementEl.textContent = `Player 1 is the winner!`
+                winnerAnnouncementEl.textContent = `Player 2 is the winner!`
                 // this removes the event listener when a winner is declared, so that you cannot keep playing
                 document.querySelector('.grid').removeEventListener('click', handleGridClick, true)
         };
@@ -141,7 +141,7 @@ function checkWinner () {
             squareThree.style.backgroundColor === 'rgb(216, 123, 87)' &&
             squareFour.style.backgroundColor === 'rgb(216, 123, 87)') {
                 // this updates the text content of winnerAnnouncementEl if these ^ conditions are all met
-                winnerAnnouncementEl.textContent = `Player 2 is the winner!`
+                winnerAnnouncementEl.textContent = `Player 1 is the winner!`
                 // this removes the event listener when a winner is declared, so that you cannot keep playing
                 document.querySelector('.grid').removeEventListener('click', handleGridClick, true)
         };
