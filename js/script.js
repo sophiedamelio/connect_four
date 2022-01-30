@@ -105,9 +105,9 @@ function handleGridClick(e) {
 
     // this updates the whoseTurn variable so that it switches off between the players each time a click happens
     if (whoseTurn === 1) {
-        whoseTurn = 2;
-    } else {
         whoseTurn = 1;
+    } else {
+        whoseTurn = 2;
     };
 
     // this function is called to update the view each time a click is registered
