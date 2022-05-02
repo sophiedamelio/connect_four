@@ -28,7 +28,7 @@ To play the game, simply click anywhere on the slot you wish to place your chip,
 
 ---
 
-### Link to play the game: [Connect Four](https://sophiedamelio.github.io/connect_four)
+### Link to play the game: [Connect Four](https://sophiedamelio.github.io/connect_four_browser_game/)
 
 ---
 
